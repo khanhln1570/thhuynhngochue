@@ -1,0 +1,14 @@
+extends ./layouts/common
+block content 
+  section.padding.white.center-align.error_pages
+    .container
+      .row
+        .col-md-12
+          .error_content.text-center.align_center_center
+            .e404
+              h1 Sorry...!
+            p.not_found.text-uppercase Chu&#x301;ng t&ocirc;i &dstrok;ang x&acirc;y d&#x1B0;&#x323;ng ti&#x301;nh n&abreve;ng na&#x300;y
+            form.clearfix(action='#')
+              input(type='search', name='search', placeholder='Search here')
+              button.transition_3s(type='submit')
+                i.fa.fa-search(aria-hidden='true')

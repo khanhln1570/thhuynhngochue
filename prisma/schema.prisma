@@ -1,0 +1,92 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model role {
+  role    String    @id @db.VarChar(45)
+  account account[]
+}
+
+model account {
+  id           Int            @id @default(autoincrement())
+  username     String         @db.VarChar(200)
+  password     String         @db.VarChar(50)
+  status       String?        @db.VarChar(45)
+  createDate   DateTime       @default(now()) @db.Timestamp(6)
+  updateDate   DateTime       @default(now()) @updatedAt @db.Timestamp(6)
+  accRole      String         @db.VarChar(45)
+  note         String?        @db.Text
+  Role         role?          @relation(fields: [accRole], references: [role])
+}
+
+model member{
+  id          Int            @id @default(autoincrement())
+  name        String         @db.VarChar(200)
+  phone       String?        @db.VarChar(30)
+  avatar      String?  @db.Text
+  position    String         @db.VarChar(200)
+  description String?   @db.Text
+  address     String?        @db.VarChar(200)
+  team        String?        @db.VarChar(40)
+  facebook    String? 
+}
+
+model notification {
+  notiId               Int               @id @default(autoincrement())
+  title             String             @db.VarChar(200)
+  content          String            @db.Text
+  link             String?           @db.Text
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  image           image[]
+}
+
+model news_event {
+  newsId               Int               @id @default(autoincrement())
+  title             String             @db.VarChar(200)
+  content          String?             @db.Text 
+  link             String?              @db.Text
+  category         category         @default(COMMON)
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  image           image[]
+}
+
+
+model image{
+  id              Int               @id @default(autoincrement())
+  link            String?           @db.Text
+  notificatioId   Int?               @db.Int
+  newId           Int?               @db.Int
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  typeImage       typeImage?        @default(ALBUM)
+  notification    notification?     @relation(fields: [notificatioId], references: [notiId])
+  news_event             news_event?            @relation(fields: [newId], references: [newsId])
+}
+
+enum typeImage {
+  NEWS
+  NOTI
+  EVENT
+  ALBUM
+}
+
+enum category {
+  SCHOOL
+  EDUCATION
+  EVENT
+  COMMON
+}
+
+
+
+

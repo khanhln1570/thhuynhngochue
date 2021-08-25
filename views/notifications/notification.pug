@@ -1,0 +1,35 @@
+extends ../layouts/common
+block content 
+  section#agent-p-2.property-details.white.padding
+    .container
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe Th&ocirc;ng ba&#x301;o
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .col-lg-12
+        .row
+          each noti in notis
+            .col-md-4
+              .event_box_section
+                figure
+                  img(src=noti.link, alt='')
+                  .events_s-fig-capstion
+                    a(href='#')=noti.title
+                .events_s-thumb-caption
+                  h4=noti.title
+                  ul
+                    li
+                      a(href='#')
+                        i.fa.fa-calendar
+                        | #{noti.createDate.getDate()}-#{noti.createDate.getMonth()}-#{noti.createDate.getFullYear()} 
+                    li
+                      a(href='#')
+                        i.fa.fa-location-arrow
+                        | TH Huy&#x300;nh Ngo&#x323;c Hu&ecirc;&#x323;
+                  span
+                    a(href='#') Xem chi ti&ecirc;&#x301;t
+          

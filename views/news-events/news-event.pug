@@ -1,0 +1,70 @@
+extends ../layouts/common
+block content
+  section.breadcrumbs_common.bg_img.pos_relative
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content.align_row_spacebetween
+  // NEWS
+  section#blog.blog.blogs.white.padding.pa-50
+    .container
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe.text-custom1
+            | Tin t&#x1B0;&#x301;c
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .row
+        each news in newsList
+          .col-sm-6.col-lg-4.items
+            .info
+              a(href='#')
+                img(alt='image', title='image', src=news.link)
+              .date
+                p=news.createDate.getDate()
+                p
+                  span=(news.createDate.getMonth()+", "+news.createDate.getFullYear())
+              .caption
+                h5.event-ti-style
+                  a(href='#')=news.title
+                
+              
+                .educare-btn-style1
+                  .educare-btn-effect
+                  a(href='#')  Xem thêm 
+  // NEWS
+  // EVENT
+  section#blog.blog.blogs.white.padding.pa-50
+    .container
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe
+            | S&#x1B0;&#x323; ki&ecirc;&#x323;n
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .row
+        // start item [1]
+        .col-sm-6.col-lg-4.items
+          .info
+            a(href='#')
+              img(alt='image', title='image', src='/images/event/event1.jpg')
+            .date
+              p 28
+              p
+                span Oct, 2021
+            .caption
+              h5.event-ti-style
+                a(href='#') Đang cập nhật
+              p
+                | ...
+              .educare-btn-style1
+                .educare-btn-effect
+                a(href='#')  Xem thêm
+  // EVENT
+

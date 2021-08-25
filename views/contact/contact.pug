@@ -1,0 +1,63 @@
+extends ../layouts/common
+block content 
+    section.breadcrumbs_common.bg_img.pos_relative
+      .container
+        .row
+          .col-md-12
+            .breadcrumbs_content.align_row_spacebetween
+    // contact us
+    #our-partner.padding.white.contact-form-area
+      .container
+        .row
+          // MESSAGE
+          .col-lg-7
+            h2.contact-title.font-dearJoe.text-custom1 G&#x1B0;&#x309;i tin nh&abreve;&#x301;n cu&#x309;a ba&#x323;n
+            form#contact-form(action='mail.php', method='post')
+              .row
+                .col-lg-6
+                  input(name='name', placeholder='Tên', type='text')
+                .col-lg-6
+                  input(name='email', placeholder='Email', type='email')
+                .col-lg-12
+                  textarea(name='message', cols='30', rows='10', placeholder='Nội dung')
+                  button.button-default(type='button') G&#x1AF;&#x309;I
+                  p ( Ti&#x301;nh n&abreve;ng g&#x1B0;&#x309;i tin nh&abreve;&#x301;n &dstrok;ang &dstrok;&#x1B0;&#x1A1;&#x323;c pha&#x301;t tri&ecirc;&#x309;n )
+          // MESSAGE
+          // INFO
+          .col-lg-4
+            h2.contact-title.font-dearJoe.text-custom2 Th&ocirc;ng tin li&ecirc;n la&#x323;c
+            .contact-text
+              p
+                span.c-icon
+                  i.zmdi.zmdi-phone
+                span.c-text 0236 374 6027
+              p
+                span.c-icon
+                  i.zmdi.zmdi-email
+                span.c-text thhuynhngochue@danang.gov.vn
+              p
+                span.c-icon
+                  i.zmdi.zmdi-pin
+                span.c-text
+                  | 158 Ha&#x300; Huy T&acirc;&#x323;p, Thanh Kh&ecirc;
+                  br
+                  | &Dstrok;a&#x300; N&abreve;&#x303;ng, Vi&ecirc;&#x323;t Nam
+            h4.contact-title truy&ecirc;&#x300;n th&ocirc;ng xa&#x303; h&ocirc;&#x323;i
+            .link-social
+              a.facebook(href='https://www.facebook.com/thhuynhngochue/', target='_blank')
+                i.fa.fa-facebook
+              a.google(href='#')
+                i.fa.fa-google-plus
+              a.twitter(href='#')
+                i.fa.fa-twitter
+              a.pinterest(href='#')
+                i.fa.fa-pinterest
+          // INFO
+    // contact us
+    // Google Map Area Start
+    .container
+      h1.contact-title.font-dearJoe.text-custom2.slider_content TI&#x300;M KI&Ecirc;&#x301;M CHU&#x301;NG T&Ocirc;I TA&#x323;I &Dstrok;&Acirc;Y!
+      // Map Section
+      #contacts.map-area
+        iframe#googlemap(src='https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15336.17326170284!2d108.1918487!3d16.0632419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf74408193c4e027a!2zVHLGsOG7nW5nIFRp4buDdSBo4buNYyBIdXnMgG5oIE5nb8yjYyBIdcOqzKM!5e0!3m2!1svi!2s!4v1629827487057!5m2!1svi!2s', width='100%', height='450', style='border:0;', allowfullscreen='', loading='lazy')
+    // End of Google Map Area

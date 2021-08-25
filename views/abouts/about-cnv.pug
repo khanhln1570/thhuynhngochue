@@ -1,0 +1,85 @@
+extends ../layouts/common
+
+block content
+  section.breadcrumbs_common.bg_img.pos_relative
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          .row
+            .col-sm-1.col-lg-2
+            .col-xs-12.col-sm-10.col-lg-8.text-center
+              h2.text-uppercase.font-dearJoe &Dstrok;&ocirc;&#x323;i ngu&#x303; gia&#x301;o vi&ecirc;n
+              .line_1-1
+              .line_2-2
+              .line_3-3
+              p.heading_space
+                | &Dstrok;&#x1ED9;i ng&utilde; c&#x1EE7;a ch&uacute;ng t&ocirc;i &dstrok;a&#x323;t chu&acirc;&#x309;n, m&#x1EA1;nh m&#x1EBD; v&agrave; s&aacute;ng t&#x1EA1;o v&agrave; li&ecirc;n t&#x1EE5;c &dstrok;&#x1ED5;i m&#x1EDB;i ph&#x1B0;&#x1A1;ng th&#x1EE9;c gi&#x1EA3;ng d&#x1EA1;y &dstrok;&#x1EC3; &dstrok;em l&#x1EA1;i k&#x1EBF;t qu&#x1EA3; t&#x1ED1;t nh&#x1EA5;t.
+            .col-sm-1.col-lg-2
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel1.owl-carousel
+                // Staff Member
+                each teacher in teachers 
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='0ms', data-wow-duration='1500ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}
+  section.style2.padding.gray
+    .container-fluid
+      .container
+        .row
+          .col-sm-1.col-lg-2
+          .col-xs-12.col-sm-10.col-lg-8.text-center
+            h2.text-uppercase.font-dearJoe
+              | C&ocirc;ng nh&acirc;n vi&ecirc;n
+            .line_1-1
+            .line_2-2
+            .line_3-3
+          .col-sm-1.col-lg-2
+        .row
+          each cnv in [1,2,3,4]
+            .col-md-3.col-sm-6.col-xs-12
+              .team_common
+                .member_img.pos_relative
+                  a(href='#')
+                    img(src='/images/avatarFemale.png', alt='member image')
+                  .hoverlay
+                    ul
+                      li
+                        a(href='#', title='Facebook', target='_blank')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#', title='Twitter', target='_blank')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#', title='Vimeo', target='_blank')
+                          i.fa.fa-vimeo
+                      li
+                        a(href='#', title='Google-plus', target='_blank')
+                          i.fa.fa-google-plus
+                .member_info.text-center.pos_relative
+                  a.d_inline.fw_600(href='#') &Dstrok;ang c&acirc;&#x323;p nh&acirc;&#x323;t
+                  span.d_block CNV
+          
+          
+         
+

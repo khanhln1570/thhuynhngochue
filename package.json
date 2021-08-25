@@ -1,0 +1,24 @@
+{
+    "name": "thhuynhngochue.edu.vn",
+    "version": "1.0.0",
+    "description": "website trường tiểu học Huỳnh Ngọc Huệ-ĐN",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@prisma/client": "^2.29.1",
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "mysql": "^2.18.1",
+        "pug": "^3.0.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.12",
+        "prisma": "^2.29.1"
+    }
+}

@@ -1,0 +1,392 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  title #{title}
+  link(rel='icon', type='/image/png', href='/images/favicon.jpg')
+  // Google Font
+  link(href='https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i', rel='stylesheet')
+  // Bootstrap CSS
+  link(href='/css/bootstrap/bootstrap.min.css', type='text/css', rel='stylesheet')
+  // font-awesome CSS
+  link(href='/css/fontawesome/font-awesome.min.css', type='text/css', rel='stylesheet')
+  // owlcarousel CSS
+  link(href='/css/owlcarousel/owl.carousel.min.css', type='text/css', rel='stylesheet')
+  // Bootstrap CSS
+  link(href='/css/style.css', type='text/css', rel='stylesheet')
+  // global CSS
+  link(href='/css/shotcode.css', type='text/css', rel='stylesheet')
+  // main CSS
+  link(href='/css/responsive.css', type='text/css', rel='stylesheet')
+  // hover CSS
+  link(href='/css/hover.css', type='text/css', rel='stylesheet')
+  // images popup CSS
+  link(href='/css/magnific-popup.css', type='text/css', rel='stylesheet')
+  // modernizr jS
+  script(src='/js/modernizr-2.8.3.min.js', type='text/javascript')
+// /.top Header
+.top
+  .container
+    .row
+      .col-lg-6.col-sm-12.mobile-center
+        .email
+          a(href='#')
+            i.topbar-icon.fa.fa-envelope-o
+            span thhuynhngochue@danang.gov.vn
+        .hotline
+          a(href='#')
+            i.topbar-icon.fa.fa-phone
+            span 0236 3746 027
+      // /.col-md-6
+      .col-lg-6.col-sm-12.mobile-center
+        .wrap-top
+          ul.flat-top.social-links
+            li
+              a.facebook(href='#')
+                i.fa.fa-facebook
+            li
+              a.google(href='#')
+                i.fa.fa-google-plus
+            li
+              a.twitter(href='#')
+                i.fa.fa-twitter
+            li
+              a.pinterest(href='#')
+                i.fa.fa-pinterest
+            li
+              a.blog(href='#')
+                i.fa.fa-rss
+            li
+              a.dribbble(href='#')
+                i.fa.fa-dribbble
+          .flat-top.flat-language
+            ul.unstyled
+              li
+                a(href='/page404') Login
+              |                                 |
+              li
+                a(href='/page404') Register
+    // /.row
+  // /.container
+// /.top
+// /.Main Header
+.educare-header-section
+  // Header
+  .header.educare-info-header.clearfix
+    .container
+      .header-wrap.clearfix
+        .row
+          .col-lg-3
+            #logo.logo
+              a(href='/trang-chu', rel='home')
+                img(src='/images/logo.jpg', alt='image')
+            // /.logo
+          .col-lg-9
+            .wrap-educare-info-header.clearfix
+              aside.educare-info.educare-info-section
+                .btn-click
+                  a.flat-button(href='#')
+              aside.educare-info.educare-info-section
+                .texteducare-info.clearfix
+                  .info-icon
+                    i.fa.fa-map-marker
+                  .info-text
+                    h6 158 Ha&#x300; Huy T&acirc;&#x323;p, Thanh Kh&ecirc;
+                    p &Dstrok;a&#x300; N&abreve;&#x303;ng, Vi&ecirc;&#x323;t Nam
+              aside.educare-info.educare-info-section
+                .texteducare-info.clearfix
+                  .info-icon
+                    i.fa.fa-phone
+                  .info-text
+                    h6 0236 374 6027
+                    p thhuynhngochue@danang.gov.vn
+        // /.row
+      // /.header-wrap
+  // /.header
+  header#header.header.header-main.educare-header
+    .container
+      .row
+        .col-lg-12
+          .educare-header-wrapper
+            .nav-wrap.clearfix
+              nav#mainnav.mainnav
+                ul.menu
+                  li
+                    a(href='/trang-chu') Trang chu&#x309;
+                  li
+                    a(href='/gioi-thieu') Gi&#x1A1;&#x301;i thi&ecirc;&#x323;u
+                    ul.submenu
+                      li
+                        a(href='/gioi-thieu') Chung
+                      li
+                        a(href='/gioi-thieu/gioi-thieu-danh-nhan') Ti&ecirc;&#x309;u s&#x1B0;&#x309; danh nh&acirc;n
+                      li
+                        a(href='/gioi-thieu/gioi-thieu-cnv') Gia&#x301;o vi&ecirc;n - CNV
+                    // /.submenu
+                  li
+                    a(href='/thong-bao') Th&ocirc;ng ba&#x301;o
+                    // /.submenu
+                  li
+                    a(href='/tintuc-sukien') Tin t&#x1B0;&#x301;c - S&#x1B0;&#x323; ki&ecirc;&#x323;n
+                    ul.submenu
+                      li
+                        a(href='#') Tin nha&#x300; tr&#x1B0;&#x1A1;&#x300;ng
+                      li
+                        a(href='#') Tin gia&#x301;o du&#x323;c
+                      li
+                        a(href='#') S&#x1B0;&#x323; ki&ecirc;&#x323;n n&ocirc;&#x309;i b&acirc;&#x323;t
+                    // /.submenu
+                  li
+                    a(href='/lien-he') Li&ecirc;n h&ecirc;&#x323;
+                    // /.submenu
+                // /.menu
+              // /.mainnav
+              .educare-search
+                form#searchform-all(action='#', method='get')
+                  div
+                    input#input-search.sss(type='text', placeholder='Search...')
+                    input#searchsubmit(type='submit')
+              ul.menu.educare-ex-nav
+                li#s.show-search
+                  a.flat-search(href='#search')
+                    i.fa.fa-search
+              .educare-btn-menu
+                span
+              // //mobile menu button
+            // /.nav-wrap
+  nav#educare-mobile-nav.mainnav(style='display: none;')
+    ul.menu
+      li
+        a(href='/trang-chu') Trang chu&#x309;
+      li
+        a(href='/gioi-thieu') Gi&#x1A1;&#x301;i thi&ecirc;&#x323;u
+        ul.submenu
+          li
+            a(href='/gioi-thieu') Chung
+          li
+            a(href='/gioi-thieu/gioi-thieu-danh-nhan') Ti&ecirc;&#x309;u s&#x1B0;&#x309; danh nh&acirc;n
+          li
+            a(href='/gioi-thieu/gioi-thieu-cnv') Gia&#x301;o vi&ecirc;n - CNV
+          
+        // /.submenu
+      li
+        a(href='/thong-bao') Th&ocirc;ng ba&#x301;o
+        // /.submenu
+      li
+        a(href='/tintuc-sukien') Tin t&#x1B0;&#x301;c - S&#x1B0;&#x323; ki&ecirc;&#x323;n
+        ul.submenu
+          li
+            a(href='#') Tin nha&#x300; tr&#x1B0;&#x1A1;&#x300;ng
+          li
+            a(href='#') Tin gia&#x301;o d&#x1B0;&#x323;c
+          li
+            a(href='#') S&#x1B0;&#x323; ki&ecirc;&#x323;n n&ocirc;&#x309;i b&acirc;&#x323;t
+        // /.submenu
+      li
+        a(href='/lien-he') Li&ecirc;n h&ecirc;&#x323;
+        // /.submenu
+    // /.menu
+// /.Main Header
+
+block content
+// PARTNER
+#our-partner.padding
+  .container
+    .col-md-12
+      .row
+        #our-partner-slider.owl-carousel
+          .item
+            img.img-partner(src='/images/partner/logoVintech.png', alt='Partners')
+          .item
+            img.img-partner(src='/images/partner/logoVschool.jpg', alt='Partners')
+          .item
+            img.img-partner(src='/images/partner/logoViettel.png', alt='Partners')
+          .item
+            img.img-partner(src='/images/partner/logoVNPT.png', alt='Partners')
+          .item
+            img.img-partner(src='/images/partner/vtv7.jpg', alt='Partners')
+// PARTNER
+
+// FOOTER
+footer
+  .footer-top-section
+    .container
+      .footer-top-section-wrapper
+        .footer-top-section-left
+          p.footer-top-section-focus.font-dearJoe Ha&#x303;y li&ecirc;n h&ecirc;&#x323; v&#x1A1;&#x301;i chu&#x301;ng t&ocirc;i
+          p.footer-top-section-text.font-dearJoe Gia&#x309;i &dstrok;a&#x301;p ca&#x301;c th&abreve;&#x301;c m&abreve;&#x301;c
+        .footer-top-section-right
+          button.btn.btn-blue.btn-bold(onclick='#')
+            span
+              a(href='/lien-he') LI&Ecirc;N H&Ecirc;&#x323; NGAY
+  .footer-main
+    .container
+      .footer-main-wrapper
+        .row
+          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+            .footer-educare-widget.widget
+              .footer-title-widget.font-dearJoe TH Huy&#x300;nh Ngo&#x323;c Hu&ecirc;&#x323;
+              .footer-content-widget
+                p Tr&#x1B0;&#x1EDD;ng TH Hu&#x1EF3;nh Ng&#x1ECD;c Hu&#x1EC7; l&agrave; &dstrok;&#x1ECB;a ch&#x1EC9; &dstrok;&aacute;ng tin c&#x1EAD;y c&#x1EE7;a c&aacute;c b&#x1EAD;c ph&#x1EE5; huynh.
+          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+            .useful-link-widget.widget
+              .footer-title-widget.font-dearJoe Li&ecirc;n k&ecirc;&#x301;t h&#x1B0;&#x303;u i&#x301;ch
+              .footer-content-widget
+                .useful-link-list
+                  .row
+                    .col-lg-6.col-sm-6.col-xs-6
+                      ul.list-unstyled
+                        li
+                          i.fa.fa-angle-right
+                          a(href='http://www.danang.edu.vn/', target='_blank') S&#x1A1;&#x309; GD &Dstrok;a&#x300; N&abreve;&#x303;ng
+                        li
+                          i.fa.fa-angle-right
+                          a(href='https://www.youtube.com/channel/UC5r0xuk4DsjsYiCq8H7AlDg', target='_blank') Truy&ecirc;&#x300;n hi&#x300;nh GD
+                        li
+                          i.fa.fa-angle-right
+                          a(href='https://v-school.vn/', target='_blank') V-school
+                    .col-lg-6.col-sm-6.col-xs-6
+          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+            .footer-educare-widget.widget
+              .footer-title-widget.font-dearJoe Th&ocirc;ng tin li&ecirc;n h&ecirc;&#x323;
+              .footer-content-widget
+                .info-list
+                  ul.list-unstyled
+                    li
+                      i.fa.fa-envelope-o
+                      a(href='mailto:lebaotu0608@gmail.com', target='_blank')  lebaotu0608@gmail.com
+                    li
+                      i.fa.fa-phone
+                      a(href='tel:02363746027') 0236 374 6027
+                    li
+                      i.fa.fa-map-marker
+                      a(href='https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Ti%E1%BB%83u+h%E1%BB%8Dc+Huy%CC%80nh+Ngo%CC%A3c+Hu%C3%AA%CC%A3/@16.0632419,108.1918487,15z/data=!4m5!3m4!1s0x0:0xf74408193c4e027a!8m2!3d16.0632419!4d108.1918487', target='_blank')
+                        p 158 Ha&#x300; Huy T&acirc;&#x323;p
+                        p &Dstrok;a&#x300; N&abreve;&#x303;ng, Vi&ecirc;&#x323;t Nam
+          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+            .mailing-widget.widget
+              .footer-title-widget MAILING
+              .content-wiget
+                p Sign up for our mailing list to get 
+                form(action='#')
+                  .input-group
+                    input.form-control.form-email-widget(type='text', placeholder='Email address')
+                    span.input-group-btn
+                      input.btn.btn-email(type='submit', value='✓')
+                p We respect your privacy
+                .socials
+                  a.facebook(href='https://www.facebook.com/thhuynhngochue/?ref=page_internal', target='_blank')
+                    i.fa.fa-facebook
+                  a.google(href='#')
+                    i.fa.fa-google-plus
+                  a.twitter(href='#')
+                    i.fa.fa-twitter
+      .hyperlink
+        .pull-left.hyper-left Vintech Service &amp; Solution Co., Ltd
+        .pull-right.hyper-right Copy Right @2021 TH
+// Modal
+.short-msg
+  a.short-topup(href='#.', data-toggle='modal', data-target='#myModal')
+    i.fa.fa-envelope-o(aria-hidden='true')
+// Modal
+// Modal
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h2#myModalLabel.modal-title
+          | How can 
+          span.color_red we help?
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+      .modal-body
+        .short-msg-tab
+          // Nav tabs
+          ul.nav.nav-tabs(role='tablist')
+            li.active(role='presentation')
+              a(href='#home', aria-controls='home', role='tab', data-toggle='tab')
+                i.fa.fa-pencil-square-o(aria-hidden='true')
+                |  Suggestion
+            li(role='presentation')
+              a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab')
+                i.fa.fa-question-circle-o(aria-hidden='true')
+                |  Question
+            li(role='presentation')
+              a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab')
+                i.fa.fa-exclamation-triangle(aria-hidden='true')
+                |  Problems
+            li(role='presentation')
+              a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab')
+                i.fa.fa-comments-o(aria-hidden='true')
+                |  Feedback
+          // Tab panes
+          .tab-content
+            #home.tab-pane.active(role='tabpanel')
+              .row
+                form#contact-form.callus.padding-bottom
+                  .col-lg-12
+                    .single-query
+                      input#name.keyword-input(placeholder='Name', name='name', type='text')
+                  .col-lg-12
+                    .single-query
+                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                  .col-lg-12
+                    .single-query
+                      textarea#message(name='message', placeholder='Message')
+            #profile.tab-pane.fade(role='tabpanel')
+              .row
+                form#contact-form.callus.padding-bottom
+                  .col-lg-12
+                    .single-query
+                      input#name.keyword-input(placeholder='Name', name='name', type='text')
+                  .col-lg-12
+                    .single-query
+                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                  .col-lg-12
+                    .single-query
+                      textarea#message(name='message', placeholder='Message')
+            #messages.tab-pane.fade(role='tabpanel')
+              .row
+                form#contact-form.callus.padding-bottom
+                  .col-lg-12
+                    .single-query
+                      input#name.keyword-input(placeholder='Name', name='name', type='text')
+                  .col-lg-12
+                    .single-query
+                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                  .col-lg-12
+                    .single-query
+                      textarea#message(name='message', placeholder='Message')
+            #settings.tab-pane.fade(role='tabpanel')
+              .row
+                form#contact-form.callus.padding-bottom
+                  .col-lg-12
+                    .single-query
+                      input#name.keyword-input(placeholder='Name', name='name', type='text')
+                  .col-lg-12
+                    .single-query
+                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                  .col-lg-12
+                    .single-query
+                      textarea#message(name='message', placeholder='Message')
+      .modal-footer
+        button.dark_border(type='button', data-dismiss='modal') Cancel Message
+        button.btn_fill(type='button') Send Message
+// #/Modal
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='/js/jquery-3.3.1.min.js', type='text/javascript')
+script(src='/js/popper.min.js', type='text/javascript')
+script(src='/js/bootstrap/bootstrap.min.js', type='text/javascript')
+// owl carousel
+script(src='/js/owlcarousel/owl.carousel.min.js', type='text/javascript')
+// parallaxie
+script(src='/js/parallaxie.js', type='text/javascript')
+// To View on scroll
+script(src='/js/jquery.appear.js')
+// popup inages
+script(src='/js/jquery.magnific-popup.js')
+// Checkbox
+script(src='/js/jquery-countTo.js')
+// main js
+script(src='/js/script.js', type='text/javascript')
