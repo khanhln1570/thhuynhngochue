@@ -50,11 +50,11 @@ Thumbs.db
 *.wmv
 
 # local file
-package-lock.json
+# package-lock.json
 .vscode
 
 # private file
 private
 ssh-keys
-.env
+# .env
 
