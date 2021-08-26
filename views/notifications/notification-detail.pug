@@ -1,0 +1,73 @@
+extends ../layouts/common
+block content 
+  section.breadcrumbs_common.bg_img.pos_relative
+    .overlay-innerpage
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content.align_row_spacebetween
+            h2.color_ff Chi tiết thông báo
+  //
+    Start of noti-details
+    =============================================
+  section#blog-detail.blog-detail-section.padding
+    .container-fluid
+      .row.section-content
+        .col-sm-3
+        .col-sm-7
+          .noti-detail-content.pb20
+            h1=noti.title
+            .blog-detail-meta.pb30
+              ul.meta
+                li
+                  i.fa.fa-calendar
+                  span.ml10=(noti.createDate.getDate()+"/"+noti.createDate.getMonth()+"/"+noti.createDate.getFullYear())
+            // / blog-detail-meta
+            .noti-detail-text.pb30
+              p=noti.content
+            // /blog-text
+            each pic in noti.image
+              .blog-detail-pic.pb30
+                img(src=pic.link, alt='image')
+              // /blog-pic
+
+          // /noti-detail-content
+        .col-sm-2
+  //
+    End of blog-details
+    =============================================
+  // RECENT PROPERTY
+  section#agent-p-2.property-details.gray.padding
+    .container
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe
+            | Thông báo khác
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .col-lg-12
+        .row
+          #property-2-slider.owl-carousel
+            each noti in notis
+              .item
+                .property_item
+                  .image
+                    img.img-responsive(src=noti.link, alt='listin')
+                    .overlay
+                      .centered
+                        a.link_arrow.white_border(href=`/thong-bao/${noti.notiId}`) Chi tiết
+                  .proerty_content
+                    .proerty_text
+                      h3
+                        a(href=`/thong-bao/${noti.notiId}`)=noti.title
+                      span.bottom10 TH Huỳnh Ngọc Huệ
+                      
+                    .favroute.clearfix
+                      p.pull-left
+                        a.link_arrow(href=`/thong-bao/${noti.notiId}`) Xem thêm
+  // RECENT PROPERTY
+
+    

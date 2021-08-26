@@ -18,18 +18,18 @@ block content
                 figure
                   img(src=noti.link, alt='')
                   .events_s-fig-capstion
-                    a(href='#')=noti.title
+                    a(href=`/thong-bao/${noti.notiId}`)=noti.title
                 .events_s-thumb-caption
                   h4=noti.title
                   ul
                     li
-                      a(href='#')
+                      a(href=`/thong-bao/${noti.notiId}`)
                         i.fa.fa-calendar
                         | #{noti.createDate.getDate()}-#{noti.createDate.getMonth()}-#{noti.createDate.getFullYear()} 
                     li
-                      a(href='#')
+                      a(href=`/thong-bao/${noti.notiId}`)
                         i.fa.fa-location-arrow
                         | TH Huy&#x300;nh Ngo&#x323;c Hu&ecirc;&#x323;
                   span
-                    a(href='#') Xem chi ti&ecirc;&#x301;t
+                    a(href=`/thong-bao/${noti.notiId}`) Xem chi ti&ecirc;&#x301;t
           

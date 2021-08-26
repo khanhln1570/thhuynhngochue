@@ -12,3 +12,28 @@ module.exports.index = async(req, res) => {
         notis
     });
 }
+
+module.exports.getOne = async(req, res) => {
+    var id = parseInt(req.params.id);
+    const notis = await prisma.notification.findMany();
+    const noti = await prisma.notification.findUnique({
+        where: { notiId: id },
+        include: {
+            image: true
+        }
+
+    });
+
+    if (!noti) {
+        res.redirect('/page404')
+    } else {
+
+        res.render('notifications/notification-detail', {
+            title: 'HNH | Chi tiết Thông Báo',
+            noti,
+            notis
+
+        });
+    }
+
+}

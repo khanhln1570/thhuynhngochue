@@ -52,10 +52,9 @@ Thumbs.db
 # local file
 package-lock.json
 .vscode
-public
+
 # private file
 private
 ssh-keys
 .env
-notifications-vschool-firebase-adminsdk-nhole-31412c79ff.json
-deployment
+
