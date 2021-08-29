@@ -1391,7 +1391,7 @@
 .hvr-fade:hover,
 .hvr-fade:focus,
 .hvr-fade:active {
-    background-color: #86bc42;
+    background-color: #4dc3cf;
     color: white;
 }
 
@@ -1436,8 +1436,8 @@
     animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    background-color: #86bc42;
-    background-color: #86bc42;
+    background-color: #4dc3cf;
+    background-color: #4dc3cf;
     color: white;
 }
 
@@ -2276,7 +2276,7 @@
 .hvr-border-fade:hover,
 .hvr-border-fade:focus,
 .hvr-border-fade:active {
-    box-shadow: inset 0 0 0 4px #86bc42, 0 0 1px transparent;
+    box-shadow: inset 0 0 0 4px #4dc3cf, 0 0 1px transparent;
     /* Hack to improve aliasing on mobile/tablet devices */
 }
 

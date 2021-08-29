@@ -1,10 +1,12 @@
 extends ../layouts/common
 block content
   section.breadcrumbs_common.bg_img.pos_relative
+    .overlay-innerpage
     .container
       .row
         .col-md-12
           .breadcrumbs_content.align_row_spacebetween
+            h2.color_ff TIN TỨC - SỰ KIỆN
   // NEWS
   section#blog.blog.blogs.white.padding.pa-50
     .container
@@ -12,7 +14,7 @@ block content
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
           h2.text-uppercase.font-dearJoe.text-custom1
-            | Tin t&#x1B0;&#x301;c
+            | Tin tức
           .line_1-1
           .line_2-2
           .line_3-3
@@ -21,7 +23,7 @@ block content
         each news in newsList
           .col-sm-6.col-lg-4.items
             .info
-              a(href='#')
+              a(href=`/tintuc-sukien/${news.newsId}`)
                 img(alt='image', title='image', src=news.link)
               .date
                 p=news.createDate.getDate()
@@ -29,12 +31,12 @@ block content
                   span=(news.createDate.getMonth()+", "+news.createDate.getFullYear())
               .caption
                 h5.event-ti-style
-                  a(href='#')=news.title
+                  a(href=`/tintuc-sukien/${news.newsId}`)=news.title
                   p 
               
                 .educare-btn-style1
                   .educare-btn-effect
-                  a(href='#')  Xem thêm 
+                  a(href=`/tintuc-sukien/${news.newsId}`)  Xem thêm 
   // NEWS
   // EVENT
   section#blog.blog.blogs.white.padding.pa-50
@@ -43,7 +45,7 @@ block content
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
           h2.text-uppercase.font-dearJoe
-            | S&#x1B0;&#x323; ki&ecirc;&#x323;n
+            | Sự kiện
           .line_1-1
           .line_2-2
           .line_3-3

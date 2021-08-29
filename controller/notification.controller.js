@@ -8,7 +8,7 @@ module.exports.index = async(req, res) => {
         }
     });
     res.render('notifications/notification', {
-        title: 'HNH | Thông Báo',
+        title: 'Thông Báo',
         notis
     });
 }
@@ -29,7 +29,7 @@ module.exports.getOne = async(req, res) => {
     } else {
 
         res.render('notifications/notification-detail', {
-            title: 'HNH | Chi tiết Thông Báo',
+            title: 'Chi tiết Thông Báo',
             noti,
             notis
 
