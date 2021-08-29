@@ -6,7 +6,7 @@ module.exports.index = async(req, res) => {
     const notis = await prisma.notification.findMany({ orderBy: { notiId: 'desc' } })
     const newsList = await prisma.news_event.findMany({ orderBy: { newsId: 'desc' } })
     res.render('index', {
-        title: 'Trang chủ',
+        title: 'Ngôi trường đáng tin cậy!',
         teachers,
         notis,
         newsList
