@@ -270,45 +270,90 @@
 }
 
 
-/* ---- Start of max-width 992px CSS ---- */
+/* ---- Start of max-width 1025px CSS ---- */
 
-@media (max-width: 992px) {
+
+/* Ipad pro*/
+
+@media (max-width: 1025px) and (min-width: 993px) {
     .sm-padding {
         padding: 15px;
     }
     .main_slider .main_slide {
-        height: 400px;
+        height: 300px;
+    }
+    .main_slider .owl-dots {
+        bottom: 10px;
+    }
+}
+
+
+/* Ipad */
+
+@media (max-width: 992px) and (min-width: 768px) {
+    .sm-padding {
+        padding: 15px;
+    }
+    .main_slider .main_slide {
+        height: 270px;
+    }
+    .main_slider .owl-dots {
+        bottom: 10px;
+    }
+}
+
+@media (max-width:767px) and (min-width: 361px) {
+    .main_slider .main_slide {
+        height: 140px;
+    }
+    .main_slider .owl-dots {
+        bottom: 6px;
+    }
+}
+
+@media (max-width:360px) and (min-width: 281px) {
+    .main_slider .main_slide {
+        height: 120px;
+    }
+    .main_slider .owl-dots {
+        bottom: 3px;
+    }
+}
+
+@media (max-width:280px) {
+    .main_slider .main_slide {
+        height: 100px;
+    }
+    .main_slider .owl-dots {
+        bottom: 3px;
     }
 }
 
 
 /* ---- Start of max-width 767px CSS ---- */
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 767px) and (min-width: 280px) {
     .banner_content h2,
     h1 {
-        font-size: 18px!important;
+        font-size: 28px!important;
     }
     h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
     h3 {
-        font-size: 16px;
+        font-size: 15px;
     }
     p br {
         display: none;
     }
     .padding {
-        padding: 60px 0;
+        padding: 20px 0;
     }
     .xs-padding {
         padding: 15px;
     }
     .js .slicknav_menu {
         display: block;
-    }
-    .main_slider .main_slide {
-        height: 300px;
     }
 }
 

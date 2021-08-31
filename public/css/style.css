@@ -2095,7 +2095,7 @@ button.btn-bold {
 
 .useful-link-list ul li i {
     display: table-cell;
-    width: 15px;
+    width: 9px;
     color: #4dc3cf;
     font-weight: bold
 }
@@ -5299,7 +5299,7 @@ input.demo_vertical {
 
 .welcome-text {
     font-family: dearJoe5, sans-serif;
-    font-size: 50px;
+    font-size: 55px;
     color: white;
     line-height: normal;
 }
@@ -5428,10 +5428,11 @@ section#wellcome {
 }
 
 .noti-detail-text {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 23px;
-    text-align: justify;
+    font-size: 24px;
+    text-align: start;
     color: #000;
+    font-weight: 200;
+    padding: 20px 0;
 }
 
 .padding-partner {
@@ -5495,6 +5496,21 @@ section#wellcome {
 #sign {
     text-align: center;
     padding-left: 50%;
+}
+
+.pre-content {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 30px;
+    height: auto;
+}
+
+.link-relate {
+    color: blue;
+    font-size: 20px;
 }
 
 

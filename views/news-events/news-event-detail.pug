@@ -28,22 +28,27 @@ block content
         .col-sm-7
           .noti-detail-content.pb20
             h1=news.title
-            .blog-detail-meta.pb30
+            .blog-detail-meta.pb20
               ul.meta
                 li
                   i.fa.fa-calendar
-                  span.ml10=(news.createDate.getDate()+"/"+news.createDate.getMonth()+"/"+news.createDate.getFullYear())
+                  span.ml10=(news.createDate.getDate()+"/"+(news.createDate.getMonth()+1)+"/"+news.createDate.getFullYear())
             // / blog-detail-meta
-            .noti-detail-text.pb30
-              p=news.content
+            .noti-detail-text
+              pre.pre-content=news.content
             // /blog-text
+            h2.font-dearJoe Liên kết liên quan: 
+            each lin in links 
+              a.link-relate(href=`${lin}` taget='_blank')=lin 
+              br
             each pic in news.image
               .blog-detail-pic.pb30
                 img(src=pic.link, alt='image')
               // /blog-pic
-
+           
           // /noti-detail-content
         .col-sm-2
+         
   //
     End of blog-details
     =============================================

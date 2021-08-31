@@ -20,7 +20,18 @@ module.exports.getOne = async(req, res) => {
         }
 
     });
+    var content = news.content.split(" ");
+    console.log(content)
+    var links = [];
+    content.forEach(element => {
+        if (element.startsWith('http') || element.startsWith(' http') ||
+            element.startsWith('\nhttp') || element.startsWith('\rhttp')) {
+            element.replace(/\r?\n|\r|\n|\n*$/, "")
+            links.push(element)
+        }
+    });
 
+    console.log(links)
     if (!news) {
         res.redirect('/page404')
     } else {
@@ -28,7 +39,8 @@ module.exports.getOne = async(req, res) => {
         res.render('news-events/news-event-detail', {
             title: 'Chi tiết Tin tức - Sự kiện',
             newss,
-            news
+            news,
+            links
 
         });
     }

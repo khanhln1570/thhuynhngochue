@@ -28,7 +28,7 @@ block content
               .date
                 p=news.createDate.getDate()
                 p
-                  span=(news.createDate.getMonth()+", "+news.createDate.getFullYear())
+                  span=((news.createDate.getMonth()+1)+", "+news.createDate.getFullYear())
               .caption
                 h5.event-ti-style
                   a(href=`/tintuc-sukien/${news.newsId}`)=news.title

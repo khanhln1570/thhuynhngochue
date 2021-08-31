@@ -4,12 +4,12 @@ block content
   // /.slider_section
   section.slider_section.header_height
     ul#main-slider.owl-carousel.main_slider
-      li.main_slide(style='background-image: url(/images/portfolio/giaovien.jpg);')
+      li.main_slide(style='background-image: url(/images/fearures_section4.jpg);')
         .display-table
           .table-cell
             .container
               .slider_content
-      li.main_slide(style='background-image: url(/images/portfolio/hoc-sinh1.png);')
+      li.main_slide(style='background-image: url(/images/portfolio/aomu2.jpg);')
         .display-table
           .table-cell
             .container
@@ -26,7 +26,7 @@ block content
           .table-cell
             .container
               .slider_content
-      li.main_slide(style='background-image: url(/images/portfolio/vannghe4.png);')
+      li.main_slide(style='background-image: url(/images/portfolio/hoc-sinh1.png);')
         .display-table
           .table-cell
             .container
@@ -47,19 +47,19 @@ block content
         .col-sm-1.col-lg-2
       .row
         .col-lg-3.col-sm-3.col-xs-12.text-center
-          .welcome.top40
+          .welcome.top20
             img(src='/images/wellcome_1.png', alt='image')
             h4 Môi trường thân thiện
         .col-lg-3.col-sm-3.col-xs-12.text-center
-          .welcome.top40
+          .welcome.top20
             img(src='/images/wellcome_2.png', alt='image')
             h4 Đội ngũ giáo viên đạt chuẩn
         .col-lg-3.col-sm-3.col-xs-12.text-center
-          .welcome.top40
+          .welcome.top20
             img(src='/images/wellcome_3.png', alt='image')
             h4 Danh hiệu trong thi đua
         .col-lg-3.col-sm-3.col-xs-12.text-center
-          .welcome.top40
+          .welcome.top20
             img(src='/images/wellcome_4.png', alt='image')
             h4 Ươm mầm tài năng
   // #/WELCOME
@@ -286,7 +286,7 @@ block content
               .date
                 p=news.createDate.getDate()
                 p
-                  span=(news.createDate.getMonth()+", "+news.createDate.getFullYear())
+                  span=((news.createDate.getMonth()+1)+", "+news.createDate.getFullYear())
               .caption
                 h5.event-ti-style
                   a(href=`/tintuc-sukien/${news.newsId}`)=news.title
@@ -437,7 +437,7 @@ block content
                 img.radius_100p(src='/images/avatarMale.png', alt='author')
               p.author_comment Là trường tiểu học tốt, có không gian thoáng đãng. Giáo viên và cơ sở vật chất khá tốt, là lựa chọn tốt cho học sinh nếu học tại đây.
                 br
-                br
+                
               h5.text-custom2
                 | PH Huy  
                 span.line

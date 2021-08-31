@@ -12,7 +12,7 @@ block content
       .row
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
-          h2.text-uppercase.font-dearJoe Th&ocirc;ng ba&#x301;o
+          h2.text-uppercase.font-dearJoe Thông báo
           .line_1-1
           .line_2-2
           .line_3-3
@@ -32,11 +32,11 @@ block content
                     li
                       a(href=`/thong-bao/${noti.notiId}`)
                         i.fa.fa-calendar
-                        | #{noti.createDate.getDate()}-#{noti.createDate.getMonth()}-#{noti.createDate.getFullYear()} 
+                        | #{noti.createDate.getDate()}-#{noti.createDate.getMonth()+1}-#{noti.createDate.getFullYear()} 
                     li
                       a(href=`/thong-bao/${noti.notiId}`)
                         i.fa.fa-location-arrow
-                        | TH Huy&#x300;nh Ngo&#x323;c Hu&ecirc;&#x323;
+                        | TH Huỳnh Ngọc Huệ
                   span
-                    a(href=`/thong-bao/${noti.notiId}`) Xem chi ti&ecirc;&#x301;t
+                    a(href=`/thong-bao/${noti.notiId}`) Xem chi tiết
           

@@ -24,12 +24,13 @@ block content
                   span.ml10=(noti.createDate.getDate()+"/"+noti.createDate.getMonth()+"/"+noti.createDate.getFullYear())
             // / blog-detail-meta
             .noti-detail-text.pb30
-              p=noti.content
+              pre.pre-content=noti.content
             // /blog-text
             each pic in noti.image
               .blog-detail-pic.pb30
                 img(src=pic.link, alt='image')
               // /blog-pic
+            
 
           // /noti-detail-content
         .col-sm-2
