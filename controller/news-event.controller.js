@@ -21,7 +21,7 @@ module.exports.getOne = async(req, res) => {
 
     });
     var content = news.content.split(" ");
-    console.log(content)
+    // console.log(content)
     var links = [];
     content.forEach(element => {
         if (element.startsWith('http') || element.startsWith(' http') ||
@@ -31,7 +31,7 @@ module.exports.getOne = async(req, res) => {
         }
     });
 
-    console.log(links)
+    // console.log(links)
     if (!news) {
         res.redirect('/page404')
     } else {

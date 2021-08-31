@@ -32,366 +32,382 @@ head
   // modernizr jS
   script(src='/js/modernizr-2.8.3.min.js', type='text/javascript')
 // /.top Header
-.top
-  .container
-    .row
-      .col-lg-6.col-sm-12.mobile-center
-        .email
-          a(href='#')
-            i.topbar-icon.fa.fa-envelope-o
-            span thhuynhngochue@danang.gov.vn
-        .hotline
-          a(href='#')
-            i.topbar-icon.fa.fa-phone
-            span 02363.746.027
-      // /.col-md-6
-      .col-lg-6.col-sm-12.mobile-center
-        .wrap-top
-          ul.flat-top.social-links
-            li
-              a.facebook(href='#')
-                i.fa.fa-facebook
-            li
-              a.google(href='#')
-                i.fa.fa-google-plus
-            li
-              a.twitter(href='#')
-                i.fa.fa-twitter
-            li
-              a.pinterest(href='#')
-                i.fa.fa-pinterest
-            li
-              a.blog(href='#')
-                i.fa.fa-rss
-            li
-              a.dribbble(href='#')
-                i.fa.fa-dribbble
-          .flat-top.flat-language
-            ul.unstyled
-              li
-                a(href='/page404') Login
-              |                                 |
-              li
-                a(href='/page404') Register
-    // /.row
-  // /.container
-// /.top
-// /.Main Header
-.educare-header-section
-  // Header
-  .header.educare-info-header.clearfix
-    .container
-      .header-wrap.clearfix
-        .row
-          .col-lg-3
-            #logo.logo
-              a(href='/trang-chu', rel='home')
-                img(src='/images/logo.jpg', alt='image')
-            // /.logo
-          .col-lg-9
-            .wrap-educare-info-header.clearfix
-              aside.educare-info.educare-info-section
-                .btn-click
-                  a.flat-button(href='#')
-              aside.educare-info.educare-info-section
-                .texteducare-info.clearfix
-                  .info-icon
-                    i.fa.fa-map-marker
-                  .info-text
-                    h6 158 Hà Huy Tập, Thanh Khê
-                    p Đà Nẵng, Việt Nam
-              aside.educare-info.educare-info-section
-                .texteducare-info.clearfix
-                  .info-icon
-                    i.fa.fa-phone
-                  .info-text
-                    h6 02363.746.027
-                    p thhuynhngochue@danang.gov.vn
-        // /.row
-      // /.header-wrap
-  // /.header
-  header#header.header.header-main.educare-header
+div(oncontextmenu='return false;')
+  .top
     .container
       .row
-        .col-lg-12
-          .educare-header-wrapper
-            .nav-wrap.clearfix
-              nav#mainnav.mainnav
-                ul.menu
-                  li
-                    a(href='/trang-chu') Trang chủ
-                  li
-                    a(href='/gioi-thieu') Giới thiệu
-                    ul.submenu
-                      li
-                        a(href='/gioi-thieu/thong-diep-hieu-truong') Thông điệp từ Hiệu trưởng
-                      li
-                        a(href='/gioi-thieu/gioi-thieu-danh-nhan') Tiểu sử danh nhân
-                      li
-                        a(href='/gioi-thieu/gioi-thieu-cnv') Giáo viên - CNV
-                    // /.submenu
-                  li
-                    a(href='/thong-bao') Thông báo
-                    // /.submenu
-                  li
-                    a(href='/tintuc-sukien') Tin tức - Sự kiện
-                    ul.submenu
-                      li
-                        a(href='#') Tin nhà trường
-                      li
-                        a(href='#') Tin giáo dục
-                      li
-                        a(href='#') Sự kiện nổi bật
-                    // /.submenu
-                  li
-                    a(href='/lien-he') Liên hệ
-                    // /.submenu
-                // /.menu
-              // /.mainnav
-              .educare-search
-                form#searchform-all(action='#', method='get')
-                  div
-                    input#input-search.sss(type='text', placeholder='Search...')
-                    input#searchsubmit(type='submit')
-              ul.menu.educare-ex-nav
-                li#s.show-search
-                  a.flat-search(href='#search')
-                    i.fa.fa-search
-              .educare-btn-menu
-                span
-              // //mobile menu button
-            // /.nav-wrap
-  nav#educare-mobile-nav.mainnav(style='display: none;')
-    ul.menu
-      li
-        a(href='/trang-chu') Trang chủ
-      li
-        a(href='/gioi-thieu') Giới thiệu
-        ul.submenu
-          li
-            a(href='/gioi-thieu/thong-diep-hieu-truong') Thông điệp từ hiệu trưởng
-          li
-            a(href='/gioi-thieu/gioi-thieu-danh-nhan') Tiểu sử danh nhân
-          li
-            a(href='/gioi-thieu/gioi-thieu-cnv') Giáo viên - CNV
-          
-        // /.submenu
-      li
-        a(href='/thong-bao') Thông báo
-        // /.submenu
-      li
-        a(href='/tintuc-sukien') Tin tức -  Sự kiện
-        ul.submenu
-          li
-            a(href='#') Tin nhà trường
-          li
-            a(href='#') Tin giáo dục
-          li
-            a(href='#') Sự kiện nổi bật
-        // /.submenu
-      li
-        a(href='/lien-he') Liên hệ
-        // /.submenu
-    // /.menu
-// /.Main Header
-
-block content
-// PARTNER
-#our-partner.padding-partner
-  .container
-    .col-md-12
-      .row
-        #our-partner-slider.owl-carousel
-          .item
-            a
-             img.img-partner(src='/images/partner/VINTECH.png', alt='Partners')
-          .item
-            a(href='https://v-school.vn/' target='_blank')
-             img.img-partner(src='/images/partner/V-SCHOOL.png', alt='Partners')
-          .item
-            a(href='https://vietteltelecom.vn/' target='_blank')
-             img.img-partner(src='/images/partner/VIETTEL.png', alt='Partners')
-          .item
-            a(href='https://cyberlotus.com/' target='_blank')
-             img.img-partner(src='/images/partner/CYBERLOTUS.png', alt='Partners')
-          .item
-            a(href='https://vnpt.com.vn/' target='_blank')
-              img.img-partner(src='/images/partner/MOBIFONE.png', alt='Partners')
-          .item
-            a(href='https://vnpt.com.vn/' target='_blank')
-             img.img-partner(src='/images/partner/VNPT1.png', alt='Partners')
-// PARTNER
-
-// FOOTER
-footer
-  .footer-top-section
-    .container
-      .footer-top-section-wrapper
-        .footer-top-section-left
-          p.footer-top-section-focus.font-dearJoe HÃY LIÊN HỆ VỚI CHÚNG TÔI
-          p.footer-top-section-text.font-dearJoe Giải đáp các thắc mắc
-        .footer-top-section-right
-          button.btn.btn-blue.btn-bold(onclick='#')
-            span
-              a(href='/lien-he') LIÊN HỆ NGAY
-  .footer-main
-    .container
-      .footer-main-wrapper
-        .row
-          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
-            .footer-educare-widget.widget
-              .footer-title-widget.font-dearJoe TH HUỲNH NGỌC HUỆ
-              .footer-content-widget
-                p Trường TH Huỳnh Ngọc Huệ là địa chỉ đáng tin cậy của các bậc phụ huynh.
-          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
-            .useful-link-widget.widget
-              .footer-title-widget.font-dearJoe Liên kết hữu ích
-              .footer-content-widget
-                .useful-link-list
-                  .row
-                    .col-lg-12.col-sm-12.col-xs-12
-                      ul.list-unstyled
-                        li
-                          i.fa.fa-angle-right
-                          a(href='http://pgdthanhkhe.edu.vn/', target='_blank') Phòng GD Thanh Khê
-                        li
-                          i.fa.fa-angle-right
-                          a(href='https://www.youtube.com/channel/UC5r0xuk4DsjsYiCq8H7AlDg', target='_blank') Truy&ecirc;&#x300;n hi&#x300;nh GD
-                        li
-                          i.fa.fa-angle-right
-                          a(href='https://v-school.vn/', target='_blank') V-school
-                    
-          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
-            .footer-educare-widget.widget
-              .footer-title-widget.font-dearJoe Thông tin liên lạc
-              .footer-content-widget
-                .useful-link-list
-                  ul.list-unstyled
-                    li
-                      i.fa.fa-envelope-o
-                      a#info(href='mailto:thhuynhngochue@danang.gov.vn', target='_blank')  thhuynhngochue@danang.gov.vn
-                    li
-                      i.fa.fa-phone
-                      a#info(href='tel:02363746027') 02363.746.027
-                    li
+        .col-lg-6.col-sm-12.mobile-center
+          .email
+            a(href='#')
+              i.topbar-icon.fa.fa-envelope-o
+              span thhuynhngochue@danang.gov.vn
+          .hotline
+            a(href='#')
+              i.topbar-icon.fa.fa-phone
+              span 02363.746.027
+        // /.col-md-6
+        .col-lg-6.col-sm-12.mobile-center
+          .wrap-top
+            ul.flat-top.social-links
+              li
+                a.facebook(href='#')
+                  i.fa.fa-facebook
+              li
+                a.google(href='#')
+                  i.fa.fa-google-plus
+              li
+                a.twitter(href='#')
+                  i.fa.fa-twitter
+              li
+                a.pinterest(href='#')
+                  i.fa.fa-pinterest
+              li
+                a.blog(href='#')
+                  i.fa.fa-rss
+              li
+                a.dribbble(href='#')
+                  i.fa.fa-dribbble
+            .flat-top.flat-language
+              ul.unstyled
+                li
+                  a(href='/page404') Login
+                |                                 |
+                li
+                  a(href='/page404') Register
+      // /.row
+    // /.container
+  // /.top
+  // /.Main Header
+  .educare-header-section
+    // Header
+    .header.educare-info-header.clearfix
+      .container
+        .header-wrap.clearfix
+          .row
+            .col-lg-3
+              #logo.logo
+                a(href='/trang-chu', rel='home')
+                  img(src='/images/logo.jpg', alt='image')
+              // /.logo
+            .col-lg-9
+              .wrap-educare-info-header.clearfix
+                aside.educare-info.educare-info-section
+                  .btn-click
+                    a.flat-button(href='#')
+                aside.educare-info.educare-info-section
+                  .texteducare-info.clearfix
+                    .info-icon
                       i.fa.fa-map-marker
-                      a#info(href='https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Ti%E1%BB%83u+h%E1%BB%8Dc+Huy%CC%80nh+Ngo%CC%A3c+Hu%C3%AA%CC%A3/@16.0632419,108.1918487,15z/data=!4m5!3m4!1s0x0:0xf74408193c4e027a!8m2!3d16.0632419!4d108.1918487', target='_blank')
-                        p 158 Hà Huy Tập, Thanh Khê, Đà Nẵng
-                         
-          .col-lg-3.col-sm-6.col-xs-6.footer-section-single
-            .mailing-widget.widget
-              .footer-title-widget.font-dearJoe FANPAGE
-              .fb-page(data-href='https://www.facebook.com/thhuynhngochue/', data-tabs='timeline', data-width='250', data-height='150', data-small-header='true', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
-                blockquote.fb-xfbml-parse-ignore(cite='https://www.facebook.com/thhuynhngochue/')
-                  a(href='https://www.facebook.com/thhuynhngochue/') Trường TH Huỳnh Ngọc Huệ
+                    .info-text
+                      h6 158 Hà Huy Tập, Thanh Khê
+                      p Đà Nẵng, Việt Nam
+                aside.educare-info.educare-info-section
+                  .texteducare-info.clearfix
+                    .info-icon
+                      i.fa.fa-phone
+                    .info-text
+                      h6 02363.746.027
+                      p thhuynhngochue@danang.gov.vn
+          // /.row
+        // /.header-wrap
+    // /.header
+    header#header.header.header-main.educare-header
+      .container
+        .row
+          .col-lg-12
+            .educare-header-wrapper
+              .nav-wrap.clearfix
+                nav#mainnav.mainnav
+                  ul.menu
+                    li
+                      a(href='/trang-chu') Trang chủ
+                    li
+                      a(href='/gioi-thieu') Giới thiệu
+                      ul.submenu
+                        li
+                          a(href='/gioi-thieu/thong-diep-hieu-truong') Thông điệp từ Hiệu trưởng
+                        li
+                          a(href='/gioi-thieu/gioi-thieu-danh-nhan') Tiểu sử danh nhân
+                        li
+                          a(href='/gioi-thieu/gioi-thieu-cnv') Giáo viên - CNV
+                      // /.submenu
+                    li
+                      a(href='/thong-bao') Thông báo
+                      // /.submenu
+                    li
+                      a(href='/tintuc-sukien') Tin tức - Sự kiện
+                      ul.submenu
+                        li
+                          a(href='#') Tin nhà trường
+                        li
+                          a(href='#') Tin giáo dục
+                        li
+                          a(href='#') Sự kiện nổi bật
+                      // /.submenu
+                    li
+                      a(href='/lien-he') Liên hệ
+                      // /.submenu
+                  // /.menu
+                // /.mainnav
+                .educare-search
+                  form#searchform-all(action='#', method='get')
+                    div
+                      input#input-search.sss(type='text', placeholder='Search...')
+                      input#searchsubmit(type='submit')
+                ul.menu.educare-ex-nav
+                  li#s.show-search
+                    a.flat-search(href='#search')
+                      i.fa.fa-search
+                .educare-btn-menu
+                  span
+                // //mobile menu button
+              // /.nav-wrap
+    nav#educare-mobile-nav.mainnav(style='display: none;')
+      ul.menu
+        li
+          a(href='/trang-chu') Trang chủ
+        li
+          a(href='/gioi-thieu') Giới thiệu
+          ul.submenu
+            li
+              a(href='/gioi-thieu/thong-diep-hieu-truong') Thông điệp từ hiệu trưởng
+            li
+              a(href='/gioi-thieu/gioi-thieu-danh-nhan') Tiểu sử danh nhân
+            li
+              a(href='/gioi-thieu/gioi-thieu-cnv') Giáo viên - CNV
+            
+          // /.submenu
+        li
+          a(href='/thong-bao') Thông báo
+          // /.submenu
+        li
+          a(href='/tintuc-sukien') Tin tức -  Sự kiện
+          ul.submenu
+            li
+              a(href='#') Tin nhà trường
+            li
+              a(href='#') Tin giáo dục
+            li
+              a(href='#') Sự kiện nổi bật
+          // /.submenu
+        li
+          a(href='/lien-he') Liên hệ
+          // /.submenu
+      // /.menu
+  // /.Main Header
 
-      .hyperlink
-        .hyper-right(style='text-align: center;font-style: italic;') Copy Right &copy;2021 Product of Vintech Service &amp; Solution Co., Ltd
+  block content
+  // PARTNER
+  #our-partner.padding-partner
+    .container
+      .col-md-12
+        .row
+          #our-partner-slider.owl-carousel
+            .item
+              a
+              img.img-partner(src='/images/partner/VINTECH.png', alt='Partners')
+            .item
+              a(href='https://v-school.vn/' target='_blank')
+              img.img-partner(src='/images/partner/V-SCHOOL.png', alt='Partners')
+            .item
+              a(href='https://vietteltelecom.vn/' target='_blank')
+              img.img-partner(src='/images/partner/VIETTEL.png', alt='Partners')
+            .item
+              a(href='https://cyberlotus.com/' target='_blank')
+              img.img-partner(src='/images/partner/CYBERLOTUS.png', alt='Partners')
+            .item
+              a(href='https://vnpt.com.vn/' target='_blank')
+                img.img-partner(src='/images/partner/MOBIFONE.png', alt='Partners')
+            .item
+              a(href='https://vnpt.com.vn/' target='_blank')
+              img.img-partner(src='/images/partner/VNPT1.png', alt='Partners')
+  // PARTNER
 
-// Modal
-.short-msg
-  a.short-topup(href='#.', data-toggle='modal', data-target='#myModal')
-    i.fa.fa-envelope-o(aria-hidden='true')
-// Modal
-// Modal
-#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-  .modal-dialog(role='document')
-    .modal-content
-      .modal-header
-        h2#myModalLabel.modal-title
-          |  
-          span.color_red Chúng tôi có thể giúp gì?
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') &times;
-      .modal-body
-        .short-msg-tab
-          // Nav tabs
-          ul.nav.nav-tabs(role='tablist')
-            li.active(role='presentation')
-              a(href='#home', aria-controls='home', role='tab', data-toggle='tab')
-                i.fa.fa-pencil-square-o(aria-hidden='true')
-                |  Góp ý
-            li(role='presentation')
-              a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab')
-                i.fa.fa-question-circle-o(aria-hidden='true')
-                |  Thắc mắc
-            li(role='presentation')
-              a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab')
-                i.fa.fa-exclamation-triangle(aria-hidden='true')
-                |  Vấn đề khác
-            li(role='presentation')
-              a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab')
-                i.fa.fa-comments-o(aria-hidden='true')
-                |  Đánh giá
-          // Tab panes
-          .tab-content
-            #home.tab-pane.active(role='tabpanel')
-              .row
-                form#contact-form.callus.padding-bottom
-                  .col-lg-12
-                    .single-query
-                      input#name.keyword-input(placeholder='Name', name='name', type='text')
-                  .col-lg-12
-                    .single-query
-                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                  .col-lg-12
-                    .single-query
-                      textarea#message(name='message', placeholder='Message')
-            #profile.tab-pane.fade(role='tabpanel')
-              .row
-                form#contact-form.callus.padding-bottom
-                  .col-lg-12
-                    .single-query
-                      input#name.keyword-input(placeholder='Name', name='name', type='text')
-                  .col-lg-12
-                    .single-query
-                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                  .col-lg-12
-                    .single-query
-                      textarea#message(name='message', placeholder='Message')
-            #messages.tab-pane.fade(role='tabpanel')
-              .row
-                form#contact-form.callus.padding-bottom
-                  .col-lg-12
-                    .single-query
-                      input#name.keyword-input(placeholder='Name', name='name', type='text')
-                  .col-lg-12
-                    .single-query
-                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                  .col-lg-12
-                    .single-query
-                      textarea#message(name='message', placeholder='Message')
-            #settings.tab-pane.fade(role='tabpanel')
-              .row
-                form#contact-form.callus.padding-bottom
-                  .col-lg-12
-                    .single-query
-                      input#name.keyword-input(placeholder='Name', name='name', type='text')
-                  .col-lg-12
-                    .single-query
-                      input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                  .col-lg-12
-                    .single-query
-                      textarea#message(name='message', placeholder='Message')
-      .modal-footer
-        button.btn_fill(type='button', data-dismiss='modal') Hủy         
-        button.btn_fill(type='button') Gửi 
-// #/Modal
-// jQuery first, then Popper.js, then Bootstrap JS
-script(src='/js/jquery-3.3.1.min.js', type='text/javascript')
-script(src='/js/popper.min.js', type='text/javascript')
-script(src='/js/bootstrap/bootstrap.min.js', type='text/javascript')
-// owl carousel
-script(src='/js/owlcarousel/owl.carousel.min.js', type='text/javascript')
-// parallaxie
-script(src='/js/parallaxie.js', type='text/javascript')
-// To View on scroll
-script(src='/js/jquery.appear.js')
-// popup inages
-script(src='/js/jquery.magnific-popup.js')
-// Checkbox
-script(src='/js/jquery-countTo.js')
-// main js
-script(src='/js/script.js', type='text/javascript')
-script(async='', defer='', crossorigin='anonymous', src='https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0', nonce='N5LP1ZXm')
+  // FOOTER
+  footer
+    .footer-top-section
+      .container
+        .footer-top-section-wrapper
+          .footer-top-section-left
+            p.footer-top-section-focus.font-dearJoe HÃY LIÊN HỆ VỚI CHÚNG TÔI
+            p.footer-top-section-text.font-dearJoe Giải đáp các thắc mắc
+          .footer-top-section-right
+            button.btn.btn-blue.btn-bold(onclick='#')
+              span
+                a(href='/lien-he') LIÊN HỆ NGAY
+    .footer-main
+      .container
+        .footer-main-wrapper
+          .row
+            .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+              .footer-educare-widget.widget
+                .footer-title-widget.font-dearJoe TH HUỲNH NGỌC HUỆ
+                .footer-content-widget
+                  p Trường TH Huỳnh Ngọc Huệ là địa chỉ đáng tin cậy của các bậc phụ huynh.
+            .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+              .useful-link-widget.widget
+                .footer-title-widget.font-dearJoe Liên kết hữu ích
+                .footer-content-widget
+                  .useful-link-list
+                    .row
+                      .col-lg-12.col-sm-12.col-xs-12
+                        ul.list-unstyled
+                          li
+                            i.fa.fa-angle-right
+                            a(href='http://pgdthanhkhe.edu.vn/', target='_blank') Phòng GD Thanh Khê
+                          li
+                            i.fa.fa-angle-right
+                            a(href='https://www.youtube.com/channel/UC5r0xuk4DsjsYiCq8H7AlDg', target='_blank') Truy&ecirc;&#x300;n hi&#x300;nh GD
+                          li
+                            i.fa.fa-angle-right
+                            a(href='https://v-school.vn/', target='_blank') V-school
+                      
+            .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+              .footer-educare-widget.widget
+                .footer-title-widget.font-dearJoe Thông tin liên lạc
+                .footer-content-widget
+                  .useful-link-list
+                    ul.list-unstyled
+                      li
+                        i.fa.fa-envelope-o
+                        a#info(href='mailto:thhuynhngochue@danang.gov.vn', target='_blank')  thhuynhngochue@danang.gov.vn
+                      li
+                        i.fa.fa-phone
+                        a#info(href='tel:02363746027') 02363.746.027
+                      li
+                        i.fa.fa-map-marker
+                        a#info(href='https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+Ti%E1%BB%83u+h%E1%BB%8Dc+Huy%CC%80nh+Ngo%CC%A3c+Hu%C3%AA%CC%A3/@16.0632419,108.1918487,15z/data=!4m5!3m4!1s0x0:0xf74408193c4e027a!8m2!3d16.0632419!4d108.1918487', target='_blank')
+                          p 158 Hà Huy Tập, Thanh Khê, Đà Nẵng
+                          
+            .col-lg-3.col-sm-6.col-xs-6.footer-section-single
+              .mailing-widget.widget
+                .footer-title-widget.font-dearJoe FANPAGE
+                .fb-page(data-href='https://www.facebook.com/thhuynhngochue/', data-tabs='timeline', data-width='250', data-height='150', data-small-header='true', data-adapt-container-width='true', data-hide-cover='false', data-show-facepile='true')
+                  blockquote.fb-xfbml-parse-ignore(cite='https://www.facebook.com/thhuynhngochue/')
+                    a(href='https://www.facebook.com/thhuynhngochue/') Trường TH Huỳnh Ngọc Huệ
+
+        .hyperlink
+          .hyper-right(style='text-align: center;font-style: italic;') Copy Right &copy;2021 Product of Vintech Service &amp; Solution Co., Ltd
+
+  // Modal
+  .short-msg
+    a.short-topup(href='#.', data-toggle='modal', data-target='#myModal')
+      i.fa.fa-envelope-o(aria-hidden='true')
+  // Modal
+  // Modal
+  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h2#myModalLabel.modal-title
+            |  
+            span.color_red Chúng tôi có thể giúp gì?
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+        .modal-body
+          .short-msg-tab
+            // Nav tabs
+            ul.nav.nav-tabs(role='tablist')
+              li.active(role='presentation')
+                a(href='#home', aria-controls='home', role='tab', data-toggle='tab')
+                  i.fa.fa-pencil-square-o(aria-hidden='true')
+                  |  Góp ý
+              li(role='presentation')
+                a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab')
+                  i.fa.fa-question-circle-o(aria-hidden='true')
+                  |  Thắc mắc
+              li(role='presentation')
+                a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab')
+                  i.fa.fa-exclamation-triangle(aria-hidden='true')
+                  |  Vấn đề khác
+              li(role='presentation')
+                a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab')
+                  i.fa.fa-comments-o(aria-hidden='true')
+                  |  Đánh giá
+            // Tab panes
+            .tab-content
+              #home.tab-pane.active(role='tabpanel')
+                .row
+                  form#contact-form.callus.padding-bottom
+                    .col-lg-12
+                      .single-query
+                        input#name.keyword-input(placeholder='Name', name='name', type='text')
+                    .col-lg-12
+                      .single-query
+                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                    .col-lg-12
+                      .single-query
+                        textarea#message(name='message', placeholder='Message')
+              #profile.tab-pane.fade(role='tabpanel')
+                .row
+                  form#contact-form.callus.padding-bottom
+                    .col-lg-12
+                      .single-query
+                        input#name.keyword-input(placeholder='Name', name='name', type='text')
+                    .col-lg-12
+                      .single-query
+                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                    .col-lg-12
+                      .single-query
+                        textarea#message(name='message', placeholder='Message')
+              #messages.tab-pane.fade(role='tabpanel')
+                .row
+                  form#contact-form.callus.padding-bottom
+                    .col-lg-12
+                      .single-query
+                        input#name.keyword-input(placeholder='Name', name='name', type='text')
+                    .col-lg-12
+                      .single-query
+                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                    .col-lg-12
+                      .single-query
+                        textarea#message(name='message', placeholder='Message')
+              #settings.tab-pane.fade(role='tabpanel')
+                .row
+                  form#contact-form.callus.padding-bottom
+                    .col-lg-12
+                      .single-query
+                        input#name.keyword-input(placeholder='Name', name='name', type='text')
+                    .col-lg-12
+                      .single-query
+                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                    .col-lg-12
+                      .single-query
+                        textarea#message(name='message', placeholder='Message')
+        .modal-footer
+          button.btn_fill(type='button', data-dismiss='modal') Hủy         
+          button.btn_fill(type='button') Gửi 
+  // #/Modal
+  // jQuery first, then Popper.js, then Bootstrap JS
+  script(src='/js/jquery-3.3.1.min.js', type='text/javascript')
+  script(src='/js/popper.min.js', type='text/javascript')
+  script(src='/js/bootstrap/bootstrap.min.js', type='text/javascript')
+  // owl carousel
+  script(src='/js/owlcarousel/owl.carousel.min.js', type='text/javascript')
+  // parallaxie
+  script(src='/js/parallaxie.js', type='text/javascript')
+  // To View on scroll
+  script(src='/js/jquery.appear.js')
+  // popup inages
+  script(src='/js/jquery.magnific-popup.js')
+  // Checkbox
+  script(src='/js/jquery-countTo.js')
+  // main js
+  script(src='/js/script.js', type='text/javascript')
+  script(async='', defer='', crossorigin='anonymous', src='https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0', nonce='N5LP1ZXm')
+  script.
+      document.onkeydown = function(e) {
+      if (event.keyCode === 123) {
+      return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+      return false
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+      return false
+      }
+      if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+      return false
+      }
+      }
 

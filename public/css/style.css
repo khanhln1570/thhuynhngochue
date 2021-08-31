@@ -5514,6 +5514,26 @@ section#wellcome {
 }
 
 
+/*rút gọn multi line*/
+
+p#content-news {
+    overflow: hidden;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+
+/*rút gọn signle line*/
+
+
+/* text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+width:100px; // some width */
+
+
 /*
 * ----------------------------------------------------------------------------------------
 *   18. END SINGLE PRODUCT PAGE STYLE
