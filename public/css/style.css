@@ -2782,7 +2782,7 @@ button {
 }
 
 .breadcrumbs_common .breadcrumbs_content {
-    min-height: 200px;
+    height: 200px;
 }
 
 .breadcrumbs_common .breadcrumb>.active {
@@ -2806,7 +2806,11 @@ button {
 }
 
 .breadcrumbs_common.bg_img .breadcrumbs_content {
-    min-height: 200px;
+    height: 250px;
+}
+
+.breadcrumbs_common .breadcrumbs_content {
+    height: 250px;
 }
 
 .overlay-innerpage {
@@ -5470,7 +5474,7 @@ section#wellcome {
         width: 40px;
     }
     .text-center .heading_space {
-        font-size: 9px;
+        font-size: 17px;
     }
 }
 
