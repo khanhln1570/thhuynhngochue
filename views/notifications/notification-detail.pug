@@ -25,6 +25,9 @@ block content
             // / blog-detail-meta
             .noti-detail-text.pb30
               pre.pre-content=noti.content
+            h2.font-dearJoe Liên kết liên quan: 
+            each lin in links 
+              a.link-relate(href=`${lin}` target='_blank')=lin 
             // /blog-text
             each pic in noti.image
               .blog-detail-pic.pb30

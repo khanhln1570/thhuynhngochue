@@ -2057,7 +2057,7 @@ button.btn-bold {
 
 .footer-educare-widget p {
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .footer-educare-widget .info-list ul {
@@ -2098,7 +2098,7 @@ button.btn-bold {
 
 .useful-link-list ul li a {
     display: table-cell;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .useful-link-list ul li i {
@@ -3588,7 +3588,6 @@ section.half {
     line-height: 30px;
     font-size: 20px;
     color: #000;
-    font-style: italic;
     text-align: justify;
 }
 
@@ -3767,7 +3766,6 @@ section.icons-style-04 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     font-size: 20px;
-    font-style: italic;
 }
 
 .introduction-01 .block {
@@ -3780,6 +3778,12 @@ section.icons-style-04 {
 
 .introduction-01 .description .button {
     padding-top: 20px;
+}
+
+.title-des {
+    margin-top: 20px;
+    line-height: 40px;
+    font-weight: bold;
 }
 
 .introduction-01 .block .heading-with-count .count {
@@ -5443,7 +5447,7 @@ section#wellcome {
     font-size: 24px;
     text-align: start;
     color: #000;
-    font-weight: 400;
+    font-weight: 300;
     padding: 20px 0;
 }
 

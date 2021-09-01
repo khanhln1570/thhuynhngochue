@@ -1,0 +1,43 @@
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  meta(name='description', content='Đăng nhập admin trường TH Huỳnh Ngọc Huệ')
+  title Trường TH Huỳnh Ngọc Huệ | Đăng Nhập
+  // Bootstrap core CSS
+  link(href='/css/bootstrap/bootstrap1.min.css', rel='stylesheet')
+  // Custom styles for this template
+  link(href='/css/signin.css',  type='text/css',rel='stylesheet')
+  link(href='/css/style.css', rel='stylesheet', type='text/css')
+  style.
+    .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    }
+    @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+    }
+    }
+body
+  .container-fluid
+    .row.text-center
+      .col-lg-3.col-md-3.col-sm-2
+      .col-lg-6.col-md-6.col-sm-8
+        main.form-signin
+          form
+            img.mb-4(src='/images/logo1.jpg', alt='', width='100%')
+            h1.font-dearJoe SIGN IN
+            .form-floating
+              input#floatingInput.form-control(type='text', placeholder='Username')
+              label.font-dearJoe(for='floatingInput') Username
+            .form-floating
+              input#floatingPassword.form-control(type='password', placeholder='Password')
+              label.font-dearJoe(for='floatingPassword') Password
+            .checkbox.mb-3
+              label.message  Remember
+            button.w-100.btn.btn-lg.btn-primary.font-dearJoe(type='submit') ĐĂNG NHẬP
+            p.mt-5.mb-3.text-muted &copy; 2021
+      .col-lg-3.col-md-3.col-sm-1

@@ -31,7 +31,7 @@ app.use(function(err, req, res, next) {
 
 });
 
-// // 404
+// 404
 app.get('/page404', (req, res) => {
     res.render('page404', {
         title: '404'
@@ -62,6 +62,12 @@ app.use('/tintuc-sukien', newsEventRoutes)
 // contact  routes
 const contactRoutes = require('./routes/contact.routes')
 app.use('/lien-he', contactRoutes)
+
+
+// auth routes
+const authRoutes = require('./routes/auth.routes')
+app.use('/login', authRoutes)
+
 
 app.listen(port, function() {
     console.log('Server listening in port: ' + port);

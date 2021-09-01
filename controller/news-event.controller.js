@@ -25,9 +25,13 @@ module.exports.getOne = async(req, res) => {
     var links = [];
     content.forEach(element => {
         if (element.startsWith('http') || element.startsWith(' http') ||
-            element.startsWith('\nhttp') || element.startsWith('\rhttp')) {
-            element.replace(/\r?\n|\r|\n|\n*$/, "")
-            links.push(element)
+            element.startsWith('\nhttp') || element.startsWith('\rhttp') ||
+            element.startsWith('(http') ||
+            element.startsWith('[http') ||
+            element.startsWith('{http')) {
+            var link = element.replace(/[{()}\[\]]/g, '')
+
+            links.push(link)
         }
     });
 

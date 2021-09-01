@@ -23,7 +23,20 @@ module.exports.getOne = async(req, res) => {
         }
 
     });
+    var content = noti.content.split(" ");
+    // console.log(content)
+    var links = [];
+    content.forEach(element => {
+        if (element.startsWith('http') || element.startsWith(' http') ||
+            element.startsWith('\nhttp') || element.startsWith('\rhttp') || element.startsWith('(http') ||
+            element.startsWith('[http') ||
+            element.startsWith('{http')) {
+            var link = element.replace(/[{()}\[\]]/g, '')
 
+            links.push(link)
+        }
+    });
+    // console.log(links);
     if (!noti) {
         res.redirect('/page404')
     } else {
@@ -31,7 +44,8 @@ module.exports.getOne = async(req, res) => {
         res.render('notifications/notification-detail', {
             title: 'Chi tiết Thông Báo',
             noti,
-            notis
+            notis,
+            links
 
         });
     }
