@@ -456,27 +456,16 @@ block content
       .row
         .col-sm-12
           .team_carousel1.owl-carousel
-            .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
-              .author_img
-                img.radius_100p(src='/images/portfolio/aomu.jpg', alt='author')
-              p.author_comment Em yêu trường em, với bao bạn thân...
-              h5.text-custom1.text-uppercase
-                | Học sinh 
-                span.line
-            .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
-              .author_img
-                img.radius_100p(src='/images/testimonial_author3.jpg', alt='author')
-              p.author_comment Em yêu trường em, với bao bạn thân...
-              h5.text-custom2.text-uppercase
-                | Học sinh  
-                span.line
-            .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
-              .author_img
-                img.radius_100p(src='/images/testimonial_author3.jpg', alt='author')
-              p.author_comment Em yêu trường em, với bao bạn thân...
-              h5.text-custom2.text-uppercase
-                | Học sinh  
-                span.line
+            each st in [1,2,3]
+              .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
+                .author_img
+                  img.radius_100p(src='/images/portfolio/aomu.jpg', alt='author')
+                p.author_comment Em yêu trường em, với bao bạn thân...
+                h5.text-custom1.text-uppercase
+                  | Học sinh 
+                  span.line
+            
+            
   // testimonial Section
   
 
