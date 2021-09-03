@@ -19,11 +19,43 @@ block content
               p.heading_space
                 | Đội ngũ của chúng tôi đạt chuẩn, mạnh mẽ và sáng tạo, liên tục đổi mới phương thức giảng dạy để đem lại kết quả tốt nhất.
             .col-sm-1.col-lg-2
+          br
+          h3.position Ban giám hiệu
           .row.clearfix
             .col-md-12.col-sm-12
-              .team_carousel1.owl-carousel
+              .team_carousel3.owl-carousel
                 // Staff Member
-                each teacher in teachers 
+                each teacher in bgh 
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}
+
+  // khoi 1
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Giáo viên chủ nhiệm khối 1
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in gvcn1
                   .staff-member
                     .inner-box.wow.fadeInUp(data-wow-delay='0ms', data-wow-duration='1500ms')
                       figure.image-box
@@ -42,26 +74,173 @@ block content
                       .lower-content
                         h3
                           a(href='#')=teacher.name
+                        .designation #{teacher.position}     
+
+  //khoi 2
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Giáo viên chủ nhiệm khối 2
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in gvcn2
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
                         .designation #{teacher.position}
-  section.style2.padding.gray
+
+
+  // khoi 3
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Giáo viên chủ nhiệm khối 3
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in gvcn3
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}
+
+  // khoi 4
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Giáo viên chủ nhiệm khối 4
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in gvcn4
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}
+
+  // khoi 5
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Giáo viên chủ nhiệm khối 5
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in gvcn5
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}
+
+
+  // VĂN HÓA
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Giáo viên dạy Văn hóa
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in gvVanhoa
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}
+
+
+  // MĨ THUẬT
+  section.style2.padding
     .container-fluid
       .container
+        h3.position Giáo viên dạy Mĩ thuật
         .row
-          .col-sm-1.col-lg-2
-          .col-xs-12.col-sm-10.col-lg-8.text-center
-            h2.text-uppercase.font-dearJoe
-              | CÔNG NHÂN VIÊN
-            .line_1-1
-            .line_2-2
-            .line_3-3
-          .col-sm-1.col-lg-2
-        .row
-          each cnv in [1,2,3,4]
+          each cnv in gvMithuat 
             .col-md-3.col-sm-6.col-xs-12
               .team_common
                 .member_img.pos_relative
                   a(href='#')
-                    img(src='/images/avatarFemale.png', alt='member image')
+                    img(src=cnv.avatar, alt='member image')
                   .hoverlay
                     ul
                       li
@@ -77,9 +256,156 @@ block content
                         a(href='#', title='Google-plus', target='_blank')
                           i.fa.fa-google-plus
                 .member_info.text-center.pos_relative
-                  a.d_inline.fw_600(href='#') Đang cập nhật
-                  span.d_block CNV
-          
-          
-         
+                  a.d_inline.fw_600(href='#')=cnv.name
+                  span.d_block=cnv.position
 
+
+  // ÂM NHẠC
+  section.style2.padding
+    .container-fluid
+      .container
+        h3.position Giáo viên dạy Âm nhạc
+        .row
+          each cnv in gvAmnhac
+            .col-md-3.col-sm-6.col-xs-12
+              .team_common
+                .member_img.pos_relative
+                  a(href='#')
+                    img(src=cnv.avatar, alt='member image')
+                  .hoverlay
+                    ul
+                      li
+                        a(href='#', title='Facebook', target='_blank')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#', title='Twitter', target='_blank')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#', title='Vimeo', target='_blank')
+                          i.fa.fa-vimeo
+                      li
+                        a(href='#', title='Google-plus', target='_blank')
+                          i.fa.fa-google-plus
+                .member_info.text-center.pos_relative
+                  a.d_inline.fw_600(href='#')=cnv.name
+                  span.d_block=cnv.position
+          
+  // THỂ DỤC
+  section.style2.padding
+    .container-fluid
+      .container
+        h3.position Giáo viên dạy Thể dục
+        .row
+          each cnv in gvTheduc
+            .col-md-3.col-sm-6.col-xs-12
+              .team_common
+                .member_img.pos_relative
+                  a(href='#')
+                    img(src=cnv.avatar, alt='member image')
+                  .hoverlay
+                    ul
+                      li
+                        a(href='#', title='Facebook', target='_blank')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#', title='Twitter', target='_blank')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#', title='Vimeo', target='_blank')
+                          i.fa.fa-vimeo
+                      li
+                        a(href='#', title='Google-plus', target='_blank')
+                          i.fa.fa-google-plus
+                .member_info.text-center.pos_relative
+                  a.d_inline.fw_600(href='#')=cnv.name
+                  span.d_block=cnv.position   
+  
+  // TIN HỌC
+  section.style2.padding
+    .container-fluid
+      .container
+        h3.position Giáo viên dạy Tin học
+        .row
+          each cnv in gvTinhoc
+            .col-md-3.col-sm-6.col-xs-12.cnv
+              .team_common
+                .member_img.pos_relative
+                  a(href='#')
+                    img(src=cnv.avatar, alt='member image')
+                  .hoverlay
+                    ul
+                      li
+                        a(href='#', title='Facebook', target='_blank')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#', title='Twitter', target='_blank')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#', title='Vimeo', target='_blank')
+                          i.fa.fa-vimeo
+                      li
+                        a(href='#', title='Google-plus', target='_blank')
+                          i.fa.fa-google-plus
+                .member_info.text-center.pos_relative
+                  a.d_inline.fw_600(href='#')=cnv.name
+                  span.d_block=cnv.position
+
+  // TPT
+  section.style2.padding
+    .container-fluid
+      .container
+        h3.position Giáo viên Tổng phụ trách Đội
+        .row
+          each cnv in tpt
+            .col-md-3.col-sm-6.col-xs-12.cnv
+              .team_common
+                .member_img.pos_relative
+                  a(href='#')
+                    img(src=cnv.avatar, alt='member image')
+                  .hoverlay
+                    ul
+                      li
+                        a(href='#', title='Facebook', target='_blank')
+                          i.fa.fa-facebook
+                      li
+                        a(href='#', title='Twitter', target='_blank')
+                          i.fa.fa-twitter
+                      li
+                        a(href='#', title='Vimeo', target='_blank')
+                          i.fa.fa-vimeo
+                      li
+                        a(href='#', title='Google-plus', target='_blank')
+                          i.fa.fa-google-plus
+                .member_info.text-center.pos_relative
+                  a.d_inline.fw_600(href='#')=cnv.name
+                  span.d_block=cnv.position
+
+  // NHAN VIEN
+  section#banner-style6.banner-style6.padding
+      .container-fluid
+        .container
+          h3.position Nhân viên
+          .row.clearfix
+            .col-md-12.col-sm-12
+              .team_carousel4.owl-carousel
+                // Staff Member
+                each teacher in nv 
+                  .staff-member
+                    .inner-box.wow.fadeInUp(data-wow-delay='300ms', data-wow-duration='300ms')
+                      figure.image-box
+                        img(src=teacher.avatar, alt='')
+                        .overlay-box
+                          ul.social-icon-two
+                            li
+                              a(href='#')
+                                span.fa.fa-facebook-f
+                            li
+                              a(href='#')
+                                span.fa.fa-twitter
+                            li
+                              a(href='#')
+                                span.fa.fa-pinterest-p
+                      .lower-content
+                        h3
+                          a(href='#')=teacher.name
+                        .designation #{teacher.position}

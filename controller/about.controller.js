@@ -16,10 +16,38 @@ module.exports.about_danhnhan = async(req, res) => {
 }
 
 module.exports.about_cnv = async(req, res) => {
-    const teachers = await prisma.member.findMany();
+    const bgh = await prisma.member.findMany({ where: { position: { contains: 'trưởng' } } });
+
+    const gvcn1 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 1' } } });
+    const gvcn2 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 2' } } });
+    const gvcn3 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 3' } } });
+    const gvcn4 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 4' } } });
+    const gvcn5 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 5' } } });
+
+    const gvVanhoa = await prisma.member.findMany({ where: { position: 'DẠY VĂN HÓA' } });
+    const gvMithuat = await prisma.member.findMany({ where: { position: 'DẠY MĨ THUẬT' } });
+    const gvAmnhac = await prisma.member.findMany({ where: { position: 'DẠY ÂM NHẠC' } });
+    const gvTheduc = await prisma.member.findMany({ where: { position: 'DẠY THỂ DỤC' } });
+    const gvTinhoc = await prisma.member.findMany({ where: { position: 'DẠY TIN HỌC' } });
+
+    const tpt = await prisma.member.findMany({ where: { position: { contains: 'Tổng phụ trách' } } });
+    const nv = await prisma.member.findMany({ where: { position: { startsWith: 'NV' } } });
+
     res.render('abouts/about-cnv', {
         title: 'Giới thiệu giáo viên',
-        teachers
+        bgh,
+        gvcn1,
+        gvcn2,
+        gvcn3,
+        gvcn4,
+        gvcn5,
+        gvVanhoa,
+        gvMithuat,
+        gvAmnhac,
+        gvTheduc,
+        gvTinhoc,
+        tpt,
+        nv
     });
 }
 

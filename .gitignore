@@ -54,8 +54,8 @@ Thumbs.db
 .vscode
 
 # private file
+.env
 private
 ssh-keys
-.env
 
-.env
+
