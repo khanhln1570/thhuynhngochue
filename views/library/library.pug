@@ -1,0 +1,38 @@
+extends ../layouts/common
+block content 
+  // Gallery
+  #photo-gallery.padding.white
+    .container
+      .row.mb-20
+        .col-sm-1.col-md-2
+        .col-xs-12.col-sm-10.col-md-8.text-center
+          h2.text-uppercase.font-dearJoe
+            | Thư viện 
+            span.color_green.font-dearJoe xanh
+          .line_1-1
+          .line_2-2
+          .line_3-3
+          p.heading_space
+           | Thư viện xanh được xây dựng theo tiêu chí: Thân thiện, gần gũi với thiên nhiên để giúp các em có tinh thần học tập thoải mái, dễ dàng trao đổi tri thức, hình thành thói quen tự học, tự nghiên cứu, góp phần nâng cao chất lượng dạy và học.
+        .col-sm-1.col-md-2
+      br
+      br 
+      .row.portfolio-grid
+        // Project 1 Starts
+        each image in album
+          .col-xs-12.col-sm-6.col-md-4
+            .picture
+              img(src=image.link, alt='')
+              // Picture Overlay Starts
+              .text-overlay
+                .category Thư viện xanh
+                h1
+                  a.image-popup-vertical-fit(href=image.link, title='Product Name') Thư viện xanh
+                .line
+              .icon-overlay
+                .icon
+                  a.image-popup-vertical-fit(href=image.link, title='Product Name')
+                    i.fa.fa-search-plus(aria-hidden='true')
+            // Picture Overlay Ends
+        // Project 1 Ends
+

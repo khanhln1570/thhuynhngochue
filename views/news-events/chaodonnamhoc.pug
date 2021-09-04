@@ -1,0 +1,95 @@
+extends ../layouts/common
+block content 
+  section.breadcrumbs_common.bg_img.pos_relative
+    .overlay-innerpage
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content.align_row_spacebetween
+            h2.color_ff Chương trình chào mừng năm học mới
+  //
+    Start of noti-details
+    =============================================
+  section#blog-detail.blog-detail-section.padding
+    .container-fluid
+      .row 
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe.text-custom1=news.category 
+            
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+        
+      .row.section-content
+        .col-sm-3
+           
+        .col-sm-7
+          .noti-detail-content.pb20
+            h1.font-dearJoe=news.title
+            .blog-detail-meta.pb20
+              ul.meta
+                li
+                  i.fa.fa-calendar
+                  span.ml10=(news.createDate.getDate()+"/"+(news.createDate.getMonth()+1)+"/"+news.createDate.getFullYear())
+            // / blog-detail-meta
+            .noti-detail-text
+              pre.pre-content CHƯƠNG TRÌNH CHÀO MỪNG NĂM HỌC MỚI 2021-2022
+            .blog-detail-pic.pb30
+                img(src='/images/event/chaodonnamhoc/1.jpg', alt='image')
+            
+            .noti-detail-text
+              pre.pre-content 1. CHỦ TỊCH NƯỚC GỬI THƯ CHÚC MỪNG NGÀNH GIÁO DỤC NHÂN DỊP KHAI GIẢNG NĂM HỌC MỚI 2021-2022
+              br
+              .embed-responsive.embed-responsive-16by9
+                iframe(width='956', height='538', src='https://www.youtube.com/embed/Bxg68MRtpi4', title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
+
+            .noti-detail-text
+              pre.pre-content 2. TRƯỜNG TIỂU HỌC HUỲNH NGỌC HUỆ - CHÀO MỪNG NĂM HỌC MỚI 2021-2022
+              br
+              .embed-responsive.embed-responsive-16by9
+                iframe(width='956', height='538', src='https://www.youtube.com/embed/ZtaDBDJluwc', title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
+            .noti-detail-text
+              pre.pre-content Trong năm học mới này, rất vui và hạnh phúc khi chúng tôi được đồng hành cùng các bạn nhỏ trường TH Huỳnh Ngọc Huệ. Chúng tôi rất mong nhận được sự chia sẻ, động viên và đồng hành của các bậc phụ huynh.
+           
+          
+        .col-sm-2
+         
+  //
+    End of blog-details
+    =============================================
+  // RECENT PROPERTY
+  section#agent-p-2.property-details.gray.padding
+    .container
+      
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe
+            | Tin tức - Sự kiện khác
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .col-lg-12
+        .row
+          #property-2-slider.owl-carousel
+            each news in newss
+              .item
+                .property_item
+                  .image
+                    img.img-responsive(src=news.link, alt='listin')
+                    .overlay
+                      .centered
+                        a.link_arrow.white_border(href=`/tintuc-sukien/${news.newsId}`) Chi tiết
+                  .proerty_content
+                    .proerty_text
+                      h3
+                        a(href=`/tintuc-sukien/${news.newsId}`)=news.title
+                      span.bottom10 TH Huỳnh Ngọc Huệ
+                      
+                    .favroute.clearfix
+                      p.pull-left
+                        a.link_arrow(href=`/tintuc-sukien/${news.newsId}`) Xem thêm
+  // RECENT PROPERTY

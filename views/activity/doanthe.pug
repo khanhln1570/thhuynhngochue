@@ -1,0 +1,41 @@
+extends ../layouts/common
+block content 
+  section.breadcrumbs_common.bg_img.pos_relative
+    .overlay-innerpage
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content.align_row_spacebetween
+            h2.color_ff HOẠT ĐỘNG ĐOÀN THỂ
+  // NEWS
+  section#blog.blog.blogs.white.padding.pa-50
+    .container
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe.text-custom1
+            | Hoạt động đoàn thể
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .row
+        each activity in activitis
+          .col-sm-6.col-lg-4.items
+            .info
+              a(href=`/tintuc-sukien/${activity.newsId}`)
+                img(alt='image', title='image', src=activity.link)
+              .date
+                p=activity.createDate.getDate()
+                p
+                  span=((activity.createDate.getMonth()+1)+", "+activity.createDate.getFullYear())
+              .caption
+                h5.event-ti-style
+                  a(href=`/tintuc-sukien/${activity.newsId}`)=activity.title
+                  p 
+              
+                .educare-btn-style1
+                  .educare-btn-effect
+                  a(href=`/tintuc-sukien/${activity.newsId}`)  Xem thêm 
+  
+  

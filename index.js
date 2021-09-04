@@ -38,14 +38,16 @@ app.get('/page404', (req, res) => {
     })
 })
 app.get('/', (req, res) => {
-    res.redirect('/trang-chu')
+    res.render('welcome')
 })
 
 // routes trang chủ
 const homeRoutes = require('./routes/home.routes')
 app.use('/trang-chu', homeRoutes)
 
-
+// routes library
+const libraryRoutes = require('./routes/library.routes')
+app.use('/thu-vien-xanh', libraryRoutes)
 
 // about routes
 const aboutRoutes = require('./routes/about.routes')
@@ -67,6 +69,15 @@ app.use('/lien-he', contactRoutes)
 // auth routes
 const authRoutes = require('./routes/auth.routes')
 app.use('/login', authRoutes)
+
+// admin routes
+const adminRoutes = require('./routes/admin.routes')
+app.use('/manager', adminRoutes)
+
+
+// activity routes
+const activityRoutes = require('./routes/activity.routes')
+app.use('/hoat-dong', activityRoutes)
 
 
 app.listen(port, function() {

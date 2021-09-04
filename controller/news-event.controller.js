@@ -3,7 +3,7 @@ const prisma = new PrismaClient();
 
 
 module.exports.index = async(req, res) => {
-    const newsList = await prisma.news_event.findMany({ orderBy: { newsId: 'desc' } })
+    const newsList = await prisma.news_event.findMany({ orderBy: { newsId: 'asc' } })
     res.render('news-events/news-event', {
         title: 'Tin tức & Sự kiện',
         newsList
@@ -25,8 +25,7 @@ module.exports.getOne = async(req, res) => {
     var links = [];
     content.forEach(element => {
         if (element.startsWith('http') || element.startsWith(' http') ||
-            element.startsWith('\nhttp') || element.startsWith('\rhttp') ||
-            element.startsWith('(http') ||
+            element.startsWith('\nhttp') || element.startsWith('\rhttp') || element.startsWith('(http') ||
             element.startsWith('[http') ||
             element.startsWith('{http')) {
             var link = element.replace(/[{()}\[\]]/g, '')
@@ -49,4 +48,14 @@ module.exports.getOne = async(req, res) => {
         });
     }
 
+}
+
+module.exports.chaodonnamhoc = async(req, res) => {
+    const news = await prisma.news_event.findUnique({ where: { newsId: 5 } });
+    const newss = await prisma.news_event.findMany();
+    res.render('news-events/chaodonnamhoc', {
+        title: 'Chào đón năm học mới',
+        news,
+        newss
+    });
 }

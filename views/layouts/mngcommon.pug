@@ -1,0 +1,158 @@
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='keywords', content='Trường TH Huỳnh Ngọc Huệ - Ngôi trường đáng tin cậy cho các bậc phụ huynh')
+  meta(name='description', content='Địa chỉ: 158 Hà Huy Tập, Q.Thanh Khê, TP.Đà Nẵng - Điện thoại: 02363.746.027 - Website: www.thhuynhngochue.edu.vn - Email: thhuynhngochue@danang.gov.vn')
+  meta(name='google-site-verification', content='mTMJWqOndj_LKOUVWTwJI5rvGRxwrQy2Xn0EEPQV_EE')
+  // Global site tag (gtag.js) - Google Analytics
+  script(async='', src='https://www.googletagmanager.com/gtag/js?id=G-TBNBEJB1YQ')
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TBNBEJB1YQ');
+
+  title Trường TH Huỳnh Ngọc Huệ | #{title}
+  link(rel='icon', type='image/png', href='/images/favicon.jpg')
+  // Google Font
+  link(href='https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i', rel='stylesheet')
+  // Bootstrap CSS
+  link(href='/css/bootstrap/bootstrap.min.css', type='text/css', rel='stylesheet')
+  // font-awesome CSS
+  link(href='/css/fontawesome/font-awesome.min.css', type='text/css', rel='stylesheet')
+  // owlcarousel CSS
+  link(href='/css/owlcarousel/owl.carousel.min.css', type='text/css', rel='stylesheet')
+  // Bootstrap CSS
+  link(href='/css/style.css', type='text/css', rel='stylesheet')
+  // global CSS
+  link(href='/css/shotcode.css', type='text/css', rel='stylesheet')
+  // main CSS
+  link(href='/css/responsive.css', type='text/css', rel='stylesheet')
+  // hover CSS
+  link(href='/css/hover.css', type='text/css', rel='stylesheet')
+  // images popup CSS
+  link(href='/css/magnific-popup.css', type='text/css', rel='stylesheet')
+  link(href='/css/manager.css', type='text/css', rel='stylesheet')
+  // modernizr jS
+  script(src='/js/modernizr-2.8.3.min.js', type='text/javascript')
+
+.top
+  .container
+    .row
+      .col-lg-6.col-sm-12.mobile-center
+        h2.font-dearJoe(style='margin-bottom: 5px;')
+          | Xin chào trường TH Huỳnh Ngọc Huệ
+      // /.col-md-6
+      .col-lg-6.col-sm-12.mobile-center
+        .wrap-top
+          .flat-top.flat-language
+            ul.unstyled
+              li
+                a(href='#') Log out
+  // /.row
+           
+  header#header.header.header-main.educare-header
+    .container
+      .row
+        .col-lg-12
+          .educare-header-wrapper
+            .nav-wrap.clearfix
+              nav#mainnav.mainnav
+                ul.menu
+                  li
+                    a(href='about.html') Quản lý
+                    ul.submenu
+                      li
+                        a(href='/manager/notification') Thông báo
+                      li
+                        a(href='#') Tin tức sự kiện
+                      li
+                        a(href='#') Bài viết
+                    // /.submenu
+                 
+                  li
+                    a(href='#') Cập nhật thông tin
+
+                  li
+                    a(href='/trang-chu' target='_blank') Tới Trang chủ
+                // /.menu
+              // /.mainnav
+              
+              .educare-btn-menu
+                span
+              // //mobile menu button
+            // /.nav-wrap
+  nav#educare-mobile-nav.mainnav(style='display: none;')
+    ul.menu
+      li
+        a(href='about.html') Quản lý
+        ul.submenu
+          li
+            a(href='/manager/notification') Thông báo
+          li
+            a(href='#') Tin tức sự kiện
+          li
+            a(href='#') Bài viết
+        // /.submenu
+      
+      li
+        a(href='#') Cập nhật thông tin
+
+      li
+        a(href='/trang-chu' target='_blank') Tới Trang chủ
+                // /.menu
+    // /.menu
+block content 
+
+script(src='/js/jquery-3.3.1.min.js', type='text/javascript')
+script(src='/js/popper.min.js', type='text/javascript')
+script(src='/js/bootstrap/bootstrap.min.js', type='text/javascript')
+  // owl carousel
+script(src='/js/owlcarousel/owl.carousel.min.js', type='text/javascript')
+  // parallaxie
+script(src='/js/parallaxie.js', type='text/javascript')
+  // To View on scroll
+script(src='/js/jquery.appear.js')
+  // popup inages
+script(src='/js/jquery.magnific-popup.js')
+  // Checkbox
+script(src='/js/jquery-countTo.js')
+  // main js
+script(src='/js/script.js', type='text/javascript')
+script(src='/js/admin.js', type='text/javascript')
+script.
+    $(document).ready(function() {
+    // Activate tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+    // Select/Deselect checkboxes
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function() {
+    
+    if (this.checked) {
+    checkbox.each(function() {
+    this.checked = true;
+    });
+    } else {
+    checkbox.each(function() {
+    this.checked = false;
+    });
+    }
+    });
+    checkbox.click(function() {
+    if (!this.checked) {
+    $("#selectAll").prop("checked", false);
+    }
+    });
+    }
+    );  
+//- script.
+//-   $(document).on("click", ".edit", function() {
+//-   var notiId = $(this).data('id');
+//-   $(".modal-body .form-group #titleItem").val(notiId);
+//-   });
+
+    
+
+    
+

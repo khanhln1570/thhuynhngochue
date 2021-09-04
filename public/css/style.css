@@ -568,7 +568,7 @@ aside.educare-info,
 }
 
 .header .logo {
-    margin: 20px 0 0 0;
+    margin: 0 0 0 0;
 }
 
 .header.header-backgroundf61 {
@@ -656,7 +656,7 @@ aside.educare-info,
 }
 
 .menu.educare-ex-nav {
-    padding-left: 20px;
+    padding-left: 0px;
     float: right;
 }
 
@@ -824,7 +824,7 @@ aside.educare-info,
     position: relative;
     background: transparent;
     cursor: pointer;
-    margin: 22px 0 22px;
+    margin: 10px 0 10px;
     width: 26px;
     height: 16px;
     float: right;
@@ -1173,6 +1173,10 @@ Banner Section
 
 .color_red {
     color: #e0004d;
+}
+
+.color_green {
+    color: green;
 }
 
 
