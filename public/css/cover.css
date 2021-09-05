@@ -20,6 +20,8 @@
 
 body {
     background: url('../images/hinh-anh-background-troi-xanh-may-trang.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .cover-container {
