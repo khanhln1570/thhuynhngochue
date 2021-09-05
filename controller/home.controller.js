@@ -8,15 +8,8 @@ module.exports.index = async(req, res) => {
     const newsList = await prisma.news_event.findMany({
         where: {
             OR: [{
-                    newsId: 5
-                },
-                {
-                    newsId: 4
-                },
-                {
-                    newsId: 1
-                }
-            ]
+                newsId: 5
+            }]
         }
     })
     res.render('index', {

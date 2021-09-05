@@ -41,9 +41,11 @@ block content
             each lin in links 
               a.link-relate(href=`${lin}` target='_blank')=lin 
               br
+              br
             each pic in news.image
               .blog-detail-pic.pb30
                 img(src=pic.link, alt='image')
+                
               // /blog-pic
            
           // /noti-detail-content
