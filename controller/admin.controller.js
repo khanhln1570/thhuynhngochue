@@ -8,7 +8,7 @@ module.exports.notiMng = async(req, res) => {
     const notis = await prisma.notification.findMany({
         skip: (page - 1) * limit,
         take: limit,
-        orderBy: { notiId: 'desc' }
+        orderBy: { createDate: 'desc' }
     })
     const count = await prisma.notification.count({
         skip: (page - 1) * limit,

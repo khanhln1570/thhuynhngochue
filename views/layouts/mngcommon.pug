@@ -73,7 +73,8 @@ head
                  
                   li
                     a(href='#') Cập nhật thông tin
-
+                  li
+                    a(href='#') Phản hồi
                   li
                     a(href='/trang-chu' target='_blank') Tới Trang chủ
                 // /.menu
@@ -98,7 +99,8 @@ head
       
       li
         a(href='#') Cập nhật thông tin
-
+      li
+        a(href='#') Phản hồi
       li
         a(href='/trang-chu' target='_blank') Tới Trang chủ
                 // /.menu
@@ -146,11 +148,12 @@ script.
     });
     }
     );  
-//- script.
-//-   $(document).on("click", ".edit", function() {
-//-   var notiId = $(this).data('id');
-//-   $(".modal-body .form-group #titleItem").val(notiId);
-//-   });
+script.
+  $(document).on("click", ".edit", function() {
+  var item = $(this).data('id');
+  $(".modal-body .form-group #titleItem").val(item.title);
+  $(".modal-body .form-group #contentItem").val(item.content);
+  });
 
     
 

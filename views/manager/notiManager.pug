@@ -42,12 +42,12 @@ block content
                   td=noti.title
                   td
                     pre.pre-content#content-news=noti.content
-                  td=(noti.createDate.getDate()+"/"+noti.createDate.getMonth()+"/"+noti.createDate.getFullYear())
+                  td=(noti.createDate.getDate()+"/"+(noti.createDate.getMonth()+1)+"/"+noti.createDate.getFullYear())
                     
                   td
                     a(href=`/thong-bao/${noti.notiId}` target='_blank')
                       i.fa.fa-eye
-                    a.edit(href='#editItemModal',onclick='edit(); return false;', data-toggle='modal', data-id=noti.notiId)
+                    a.edit(href='#editItemModal', data-toggle='modal', data-id=noti)
                       i.fa.fa-edit(data-toggle='tooltip', title='Edit')
                     a.delete(href='#deleteItemModal', data-toggle='modal')
                       i.fa.fa-trash(data-toggle='tooltip', title='Delete')
@@ -129,10 +129,10 @@ block content
             .modal-body
               .form-group
                 label Tiêu đề
-                input.form-control#titleItem(type='text', required='',value='')
+                input.form-control#titleItem(type='text', required='')
               .form-group
                 label Nội dung
-                textarea.form-control(id='contentItem' ,required='')=index
+                textarea.form-control(id='contentItem' ,required='')
               
               .form-group
                 label Ảnh liên quan

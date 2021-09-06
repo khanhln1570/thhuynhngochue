@@ -3,7 +3,12 @@ const prisma = new PrismaClient();
 
 
 module.exports.index = async(req, res) => {
-    const newsList = await prisma.news_event.findMany({ orderBy: { newsId: 'asc' } })
+    const newsList = await prisma.news_event.findMany({
+        orderBy: { createDate: 'desc' },
+        where: {
+            category: 'EVENT'
+        }
+    })
     res.render('news-events/news-event', {
         title: 'Tin tức & Sự kiện',
         newsList

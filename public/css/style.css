@@ -1179,6 +1179,16 @@ Banner Section
     color: green;
 }
 
+.new-gif {
+    width: 50px;
+    height: 35px;
+}
+
+img#new-gif {
+    width: 50px;
+    height: 35px;
+}
+
 
 /* ================================= */
 
@@ -5555,6 +5565,11 @@ h3.position {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.noti-title-new {
+    display: inline;
+    width: 500px;
 }
 
 

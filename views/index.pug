@@ -238,6 +238,7 @@ block content
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
           h2.text-uppercase.text-white.font-dearJoe THÔNG BÁO MỚI NHẤT
+                                                   
           .line_1-1
           .line_2-2
           .line_3-3
@@ -257,7 +258,10 @@ block content
                   .proerty_content
                     .proerty_text
                       h3
+                        label.new-gif(for="") 
+                          img#new-gif(src='/images/source.gif', alt='listin')
                         a(href=`/thong-bao/${noti.notiId}`)=noti.title
+                        
                       span.bottom10 Trường TH Huỳnh Ngọc Huệ
                     .favroute.clearfix
                       p.pull-left
@@ -271,7 +275,7 @@ block content
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
           h2.text-uppercase.font-dearJoe.text-custom1 TIN TỨC MỚI NHẤT
-             
+                       
           .line_1-1
           .line_2-2
           .line_3-3
@@ -289,6 +293,8 @@ block content
                   span=((news.createDate.getMonth()+1)+", "+news.createDate.getFullYear())
               .caption
                 h5.event-ti-style
+                  label.new-gif(for="") 
+                    img#new-gif(src='/images/source.gif', alt='listin')
                   a(href=`/tintuc-sukien/${news.newsId}`)=news.title
                     | 
                 p#content-news 
