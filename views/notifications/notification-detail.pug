@@ -21,7 +21,7 @@ block content
               ul.meta
                 li
                   i.fa.fa-calendar
-                  span.ml10=(noti.createDate.getDate()+"/"+noti.createDate.getMonth()+"/"+noti.createDate.getFullYear())
+                  span.ml10=(noti.createDate.getDate()+"/"+(noti.createDate.getMonth()+1)+"/"+noti.createDate.getFullYear())
             // / blog-detail-meta
             .noti-detail-text.pb30
               pre.pre-content=noti.content
