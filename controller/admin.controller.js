@@ -76,7 +76,8 @@ module.exports.createNoti = async(req, res) => {
         // console.log(listImagesUpload.length)
         var i = 0;
         let urlsPrisma = Array.from({ length: listImagesUpload.length }).map(() => ({
-            link: listImagesUpload[i++].url
+            link: listImagesUpload[i++].url,
+            typeImage: 'NOTI'
         }));
         // console.log(urlsPrisma);
         // get first image
