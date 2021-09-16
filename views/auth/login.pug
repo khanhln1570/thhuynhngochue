@@ -27,17 +27,21 @@ body
       .col-lg-3.col-md-3.col-sm-2
       .col-lg-6.col-md-6.col-sm-8
         main.form-signin
-          form
+          form(action='/login' method="POST")
             img.mb-4(src='/images/logo1.jpg', alt='', width='100%')
             h1.font-dearJoe SIGN IN
             .form-floating
-              input#floatingInput.form-control(name='username',type='text', placeholder='Username')
+              input#floatingInput.form-control(name='username',type='text', placeholder='Username',
+              value=values ? values.username : "")
               label.font-dearJoe(for='floatingInput') Username
             .form-floating
-              input#floatingPassword.form-control(name='password',type='password', placeholder='Password')
+              input#floatingPassword.form-control(name='password',type='password', placeholder='Password',
+              value=values ? values.password : "")
               label.font-dearJoe(for='floatingPassword') Password
-            .checkbox.mb-3
-              label.message  Remember
+            if messages
+              each message in messages
+                .checkbox.mb-3
+                  label.message=message
             button.w-100.btn.btn-lg.btn-primary.font-dearJoe(type='submit') ĐĂNG NHẬP
             p.mt-5.mb-3.text-muted &copy; 2021
       .col-lg-3.col-md-3.col-sm-1

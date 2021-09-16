@@ -2,6 +2,8 @@ const express = require('express');
 // create express app
 const app = express();
 
+
+
 const cors = require('cors');
 require('dotenv').config();
 // Setup server port
@@ -17,12 +19,8 @@ app.use(express.static('public'));
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// const role = async(req, res) => {
-//     var f = await prisma.member.findMany()
-//     console.log(f)
-// }
-
-// role()
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 app.use(function(err, req, res, next) {
     // error handling logic
@@ -40,6 +38,9 @@ app.get('/page404', (req, res) => {
 app.get('/', (req, res) => {
     res.render('welcome')
 })
+
+// const { createUser } = require('./controller/auth.controller')
+// createUser();
 
 // routes trang chủ
 const homeRoutes = require('./routes/home.routes')

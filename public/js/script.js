@@ -428,13 +428,13 @@
 
 
     /* 17. ELEVATEZOOM JS  */
-    $("#zoom1").elevateZoom({
-        gallery: 'gallery_01',
-        responsive: true,
-        cursor: 'pointer',
-        galleryActiveClass: "active",
-        imageCrossfade: true
-    });
+    // $("#zoom1").elevateZoom({
+    //     gallery: 'gallery_01',
+    //     responsive: true,
+    //     cursor: 'pointer',
+    //     galleryActiveClass: "active",
+    //     imageCrossfade: true
+    // });
 
 
     /* 18. BXSLIDER JS  */

@@ -122,40 +122,213 @@ script(src='/js/jquery.magnific-popup.js')
 script(src='/js/jquery-countTo.js')
   // main js
 script(src='/js/script.js', type='text/javascript')
-script(src='/js/admin.js', type='text/javascript')
+
 script.
-    $(document).ready(function() {
+    $(document).ready(function(req,res) {
+    
     // Activate tooltip
     $('[data-toggle="tooltip"]').tooltip();
     // Select/Deselect checkboxes
-    var checkbox = $('table tbody input[type="checkbox"]');
-    $("#selectAll").click(function() {
+    var checkbox = $('input[name="options[]"]');
+    var checkAll = $('#selectAll');
+    var checkAllSubmitBtnDelete = $('.check-all-submit-btn')
+    var containerFormDelete = $('#deleteItemModal')
+    var deleteIcon = $('.delete')
+    var deleteSubmitModal = $('#deleteSubmitModal');
+    var itemIds = [];
+    var item = $('#edit').data('id');
+    // select all checked
+    checkAll.change(function(){    
+    var isCheckedAll= $(this).prop('checked');
+    checkbox.prop('checked',isCheckedAll);
+    if (isCheckedAll){
+      var data = $(this).data('id');
+      data.forEach(element =>{
+        itemIds.push(element.notiId);
+      })
+    }else{
+      itemIds = [];
+    }
+    renderCheckAllSubmitBtn();
+    //- console.log(itemIds)
+    })
+
+    // item checked
+    checkbox.change(function(){      
+      var isCheckedAll = checkbox.length === $('input[name="options[]"]:checked').length;
+      checkAll.prop('checked',isCheckedAll);
+      if ($(this).prop('checked')){
+       itemIds.push($(this).data('id').notiId)
+      }else{
+        const index = itemIds.indexOf($(this).data('id').notiId);
+        if (index > -1) {
+          itemIds.splice(index, 1);
+        }
+      }
+      renderCheckAllSubmitBtn();
+      //- console.log(itemIds)
+      
+    });
+    // Re-render check all submit btn
+    function renderCheckAllSubmitBtn(){
+      var checkCount = $('input[name="options[]"]:checked').length;
+      if(checkCount){
+        checkAllSubmitBtnDelete.removeClass('disabled')
+      }else{
+        checkAllSubmitBtnDelete.addClass('disabled')
+      }
+    }
+    // Check all submit button clicked
+    checkAllSubmitBtnDelete.click(function(e){
+      e.preventDefault();
+      var isSubmitable= !$(this).hasClass('disabled');
+      if(isSubmitable){
+        const removeDuplicate = new Set(itemIds);
+        itemIds = Array.from(removeDuplicate);
+        //- console.log(itemIds)
+        $("#deleteItemModal .modal-footer #idItemDelete").val(itemIds);
+        containerFormDelete.show();
+     
+      }
+      
+    });
+    // delete icon
+    deleteIcon.click(function(){
+      var item = $(this).data('id');
+      itemIds.push(item.notiId)
+      $("#deleteItemModal .modal-footer #idItemDelete").val(itemIds);
+    });
+    deleteSubmitModal.click(function(){
+      itemIds= [];
+      checkAll.prop('checked',false)
+      checkbox.prop('checked',false)
+    })
     
-    if (this.checked) {
-    checkbox.each(function() {
-    this.checked = true;
-    });
-    } else {
-    checkbox.each(function() {
-    this.checked = false;
-    });
-    }
-    });
-    checkbox.click(function() {
-    if (!this.checked) {
-    $("#selectAll").prop("checked", false);
-    }
-    });
     }
     );  
+    
+ 
 script.
-  $(document).on("click", ".edit", function() {
-  var item = $(this).data('id');
-  $(".modal-body .form-group #titleItem").val(item.title);
-  $(".modal-body .form-group #contentItem").val(item.content);
-  });
+
+  // add image
+  var images= [];
+  
+  var dataTransfer = new DataTransfer();
+  function image_select(){
+    var imageAdd = document.getElementById('image-upload').files;
+    
+    for (i=0; i<imageAdd.length;i++){
+      images.push({
+        "name" : imageAdd[i].name,
+        "url" : URL.createObjectURL(imageAdd[i]),
+        "file" : imageAdd[i],
+      })
+      dataTransfer.items.add(imageAdd[i]);
+     } 
+    document.getElementById('image-upload').files = dataTransfer.files;
+    document.getElementById('image-preview-wrap').innerHTML= image_show();
+    
+  }
+  function image_show(){
+    var image = "";
+    images.forEach((i)=>{
+      image += `<div class="image-preview">
+      <img id="imagePreview" src="`+i.url+`" alt="image" />
+      <span id="spanX" class="position-absolute" onclick="delete_image(`+images.indexOf(i)+`)">&times;</span>
+      </div>`;
+                    
+    });
+    return image;
+  }
+  function delete_image(imagesId){
+    images.splice(imagesId,1);
+    dataTransfer.items.remove(imagesId);
+    //- console.log(dataTransfer.files)
+    //- imageAdd  = dataTransfer.files;
+    document.getElementById('image-upload').files = dataTransfer.files;
+    document.getElementById('image-preview-wrap').innerHTML= image_show();
+  }
+  
+
+
+  // edit image
+  var imagesEdit=[];
+  var dataId;
+  var dataJSON;
+  var elementEdit = document.getElementsByClassName('edit');
+  var dataTransferUpdate = new DataTransfer();
+  //- console.log(elementEdit)
+  for(var i = 0; i < elementEdit.length; i++){
+    elementEdit[i].onclick = function(){
+    dataId = this.getAttribute('data-id');
+    
+    dataJSON = JSON.parse(dataId)
+    imagesEdit = dataJSON.image;
+    
+    document.getElementById("titleItem").value= dataJSON.title;
+    document.getElementById("contentItem").value = dataJSON.content;
+    document.getElementById('image-preview-wrap-update').innerHTML= image_show_update();
+    }
+  }
+  
+  function image_select_update(){
+    var image = document.getElementById('image-upload-update').files;
+    
+    for (i=0; i<image.length;i++){
+      imagesEdit.push({
+        "name" : image[i].name,
+        "link" : URL.createObjectURL(image[i]),
+        "file" : image[i],
+      })
+      
+     } 
+    document.getElementsByName('ImageUpload_Update[]').value = imagesEdit
+    document.getElementById('image-preview-wrap-update').innerHTML= image_show_update();
+    
+  }
+
+  function image_show_update(){
+    var image = "";
+    imagesEdit.forEach((i)=>{
+      image += `<div class="image-preview">
+      <img id="imagePreview" src="`+i.link+`" alt="image" />
+      <span class="position-absolute" onclick="delete_image_update(`+imagesEdit.indexOf(i)+`)">&times;</span>
+      </div>`;
+                    
+    });
+    document.getElementsByName('ImageUpload_Update[]').value = imagesEdit
+    return image;
+  }
+
+  function delete_image_update(e){
+    imagesEdit.splice(e,1);
+    document.getElementById('image-preview-wrap-update').innerHTML= image_show_update();
+    
+  }
+
+  // cancel button
+  function cancelModalAdd(){
+    // add
+    images= [];
+    dataTransfer.items.clear();
+    document.getElementById('image-preview-wrap').innerHTML= image_show();
+    document.getElementById("titleItemAdd").value= ""
+    document.getElementById("contentItemAdd").value = ""
+    document.getElementById('image-upload').value=""
+    
+  }
+  function cancelModalEdit(){
+    // edit
+    
+    document.getElementById('image-upload-update').value = ""
+    dataJSON = JSON.parse(dataId)
+    imagesEdit = dataJSON.image;
+    document.getElementById('image-preview-wrap-update').innerHTML= image_show_update();
+  }
+  
+ 
 
     
-
+  
     
-
+ 

@@ -2,97 +2,98 @@ extends ../layouts/mngcommon
 block content 
   section.padding.white.center-align
     .container
-      .table-responsive
-        .table-wrapper
-          .table-title
-            .row
-              .col-md-4
-                h2 Quản lý thông báo
-              .col-md-4
-                .search-box
-                  i.fa.fa-search
-                  input.form-control(type='text', placeholder='Tìm kiếm…')
-              .col-md-4
-                a.btn.btn-success(href='#addItemModal', data-toggle='modal')
-                  i.fa.fa-plus-circle
-                  span Thêm
-                a.btn.btn-danger(href='#deleteItemModal', data-toggle='modal')
-                  i.fa.fa-minus-circle
-                  span Xóa
-          table.table.table-striped.table-hover.table-bordered
-            thead
-              tr
-                th
-                  span.custom-checkbox
-                    input#selectAll(type='checkbox')
-                    label(for='selectAll')
-                th ID
-                th Tiêu đề
-                th Nội dung
-                th Ngày tạo
-                th Thao tác
-            tbody
-              each noti in notis
+      form.container-form
+        .table-responsive
+          .table-wrapper
+            .table-title
+              .row
+                .col-md-4
+                  h2 Quản lý thông báo
+                .col-md-4
+                  .search-box
+                    i.fa.fa-search
+                    input.form-control(type='text', placeholder='Tìm kiếm…')
+                .col-md-4
+                  a.btn.btn-success(href='#addItemModal', data-toggle='modal')
+                    i.fa.fa-plus-circle
+                    span Thêm
+                  a.btn.btn-danger.disabled.check-all-submit-btn(href='#deleteItemModal', data-toggle='modal')
+                    i.fa.fa-minus-circle
+                    span Xóa
+            table.table.table-striped.table-hover.table-bordered
+              thead
                 tr
-                  td
+                  th
                     span.custom-checkbox
-                      input(type='checkbox', name='options[]', value=noti.notiId, id='checkbox'+noti.notiId)
-                      label(for='checkbox'+noti.notiId)
-                  td=noti.notiId
-                  td=noti.title
-                  td
-                    pre.pre-content#content-news=noti.content
-                  td=(noti.createDate.getDate()+"/"+(noti.createDate.getMonth()+1)+"/"+noti.createDate.getFullYear())
+                      input#selectAll(type='checkbox', data-id=notis)
+                      label(for='selectAll')
+                  th ID
+                  th Tiêu đề
+                  th Nội dung
+                  th Ngày tạo
+                  th Thao tác
+              tbody
+                each noti in notis
+                  tr
+                    td
+                      span.custom-checkbox
+                        input(type='checkbox', name='options[]', value=noti.notiId, id='checkbox'+noti.notiId,, data-id=noti)
+                        label(for='checkbox'+noti.notiId)
+                    td=noti.notiId
+                    td=noti.title
+                    td
+                      pre.pre-content#content-news=noti.content
+                    td=(noti.createDate.getDate()+"/"+(noti.createDate.getMonth()+1)+"/"+noti.createDate.getFullYear())
+                      
+                    td
+                      a(href=`/thong-bao/${noti.notiId}` target='_blank')
+                        i.fa.fa-eye
+                      a.edit(href='#editItemModal', data-toggle='modal', data-id=noti)
+                        i.fa.fa-edit(data-toggle='tooltip', title='Edit')
+                      a.delete(href='#deleteItemModal', data-toggle='modal', data-id=noti)
+                        i.fa.fa-trash(data-toggle='tooltip', title='Delete')
                     
-                  td
-                    a(href=`/thong-bao/${noti.notiId}` target='_blank')
-                      i.fa.fa-eye
-                    a.edit(href='#editItemModal', data-toggle='modal', data-id=noti)
-                      i.fa.fa-edit(data-toggle='tooltip', title='Edit')
-                    a.delete(href='#deleteItemModal', data-toggle='modal')
-                      i.fa.fa-trash(data-toggle='tooltip', title='Delete')
-                  
-          .clearfix
-            .hint-text
-              | Hiện &nbsp;
-              b=count 
-              |  trong số &nbsp;
-              b=countAll
-              |  bản ghi
+            .clearfix
+              .hint-text
+                | Hiện &nbsp;
+                b=count 
+                |  trong số &nbsp;
+                b=countAll
+                |  bản ghi
 
-            if (pages>0)
-              ul.pagination
-                // first item
-                if (page==1)
-                  li.page-item.disabled
-                    a.page-link(href='/') Đầu
-                else  
-                  li.page-item
-                    a.page-link(href='/manager/notification') Đầu
+              if (pages>0)
+                ul.pagination
+                  // first item
+                  if (page==1)
+                    li.page-item.disabled
+                      a.page-link(href='/') Đầu
+                  else  
+                    li.page-item
+                      a.page-link(href='/manager/notification') Đầu
 
-                // item
-                - var i = (Number(page) > 3 ? Number(page) - 2 : 1);
-                if (i !== 1)
-                  li.page-item.disabled
-                    a.page-link(href='#') ...
-                - for (; i <= (Number(page) + 2) && i <= pages; i++)
-                    if (i==page)
-                      li.page-item.active
-                        a.page-link(href=`/manager/notification?page=${i}`)=i
-                    else  
-                      li.page-item
-                        a.page-link(href=`/manager/notification?page=${i}`)=i
-                    if (i== Number(page) + 2 && i < pages)
-                      li.page-item.disabled
-                        a.page-link(href='#') ...
+                  // item
+                  - var i = (Number(page) > 3 ? Number(page) - 2 : 1);
+                  if (i !== 1)
+                    li.page-item.disabled
+                      a.page-link(href='#') ...
+                  - for (; i <= (Number(page) + 2) && i <= pages; i++)
+                      if (i==page)
+                        li.page-item.active
+                          a.page-link(href=`/manager/notification?page=${i}`)=i
+                      else  
+                        li.page-item
+                          a.page-link(href=`/manager/notification?page=${i}`)=i
+                      if (i== Number(page) + 2 && i < pages)
+                        li.page-item.disabled
+                          a.page-link(href='#') ...
 
-                // last item
-                if (page === pages)
-                  li.page-item.disabled
-                    a.page-link(href='#') Cuối
-                else  
-                  li.page-item
-                    a.page-link(href=`/manager/notification?page=${pages}`) Cuối
+                  // last item
+                  if (page === pages)
+                    li.page-item.disabled
+                      a.page-link(href='#') Cuối
+                  else  
+                    li.page-item
+                      a.page-link(href=`/manager/notification?page=${pages}`) Cuối
               
                
                 
@@ -100,51 +101,62 @@ block content
     #addItemModal.modal.fade
       .modal-dialog
         .modal-content
-          form
+          form#form-add(action="/manager/notification/create" method="POST" enctype="multipart/form-data")
             .modal-header
               h4.modal-title Thêm thông báo
-              button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+              button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalAdd()") &times;
             .modal-body
               .form-group
                 label Tiêu đề
-                input.form-control(type='text', required='')
+                input.form-control#titleItemAdd(type='text', required='', name='title')
               .form-group
                 label Nội dung
-                textarea.form-control(required='')
+                textarea.form-control#contentItemAdd(required='', name="content")
               
               .form-group
                 label Ảnh liên quan
-                input.form-control(type='file')
+                #image-upload-form
+                  input.form-control#image-upload(type='file' onchange="image_select()" name="ImageUpload[]",
+                   multiple="", accept="image/png, image/jpeg")
+                  //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
+                  .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap
+                 
             .modal-footer
-              input.btn.btn-default(type='button', data-dismiss='modal', value='Hủy')
+              input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy', onclick="cancelModalAdd()")
               input.btn.btn-success(type='submit', value='Thêm')
+
     // Edit Modal HTML
     #editItemModal.modal.fade
       .modal-dialog
         .modal-content
-          form
+          form(action="/manager/notification/edit" method="POST" enctype="multipart/form-data")
             .modal-header
               h4.modal-title Chỉnh sửa thông báo
-              button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+              button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalEdit()") &times;
             .modal-body
               .form-group
                 label Tiêu đề
-                input.form-control#titleItem(type='text', required='')
+                input.form-control#titleItem(type='text', required='', name='title')
               .form-group
                 label Nội dung
-                textarea.form-control(id='contentItem' ,required='')
+                textarea.form-control(id='contentItem' ,required='',  name="content")
               
               .form-group
                 label Ảnh liên quan
-                input.form-control(type='file')
+                #image-upload-form
+                  input.form-control#image-upload-update(type='file' onchange="image_select_update()" name="ImageUpload_Update[]",
+                   multiple="",accept="image/png, image/jpeg")
+                  //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
+                  .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap-update
             .modal-footer
-              input.btn.btn-default(type='button', data-dismiss='modal', value='Hủy')
+              input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy', onclick="cancelModalEdit()")
               input.btn.btn-info(type='submit', value='Lưu')
+              
     // Delete Modal HTML
     #deleteItemModal.modal.fade
       .modal-dialog
         .modal-content
-          form
+          form.container-form-delete(action="/manager/notification/delete", method="POST")
             .modal-header
               h4.modal-title Xóa thông báo
               button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
@@ -153,7 +165,8 @@ block content
               p.text-danger
                 small Thao tác này không thể hoàn tác
             .modal-footer
-              input.btn.btn-default(type='button', data-dismiss='modal', value='Hủy')
-              input.btn.btn-danger(type='submit', value='Xóa')
+              input#idItemDelete(name="idItem[]",type="hidden")
+              input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy')
+              input#deleteSubmitModal.btn.btn-danger(type='submit', value='Xóa')
 
   

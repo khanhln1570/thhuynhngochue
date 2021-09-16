@@ -5572,6 +5572,33 @@ h3.position {
     width: 500px;
 }
 
+.wrap-preview {
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.image-preview {
+    height: 100%;
+    width: 200px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.image-preview img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+}
+
+.image-preview span {
+    transform: translate(-13px, -5px);
+    color: red;
+    font-size: 20px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
 
 /*rút gọn signle line*/
 
