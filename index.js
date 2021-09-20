@@ -39,8 +39,8 @@ app.get('/', (req, res) => {
     res.render('welcome')
 })
 
-// const { createUser } = require('./controller/auth.controller')
-// createUser();
+const { createUser } = require('./controller/auth.controller')
+createUser();
 
 // routes trang chủ
 const homeRoutes = require('./routes/home.routes')
