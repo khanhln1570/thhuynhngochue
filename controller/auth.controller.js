@@ -3,6 +3,8 @@ const prisma = new PrismaClient();
 const { genSaltSync, hashSync, compareSync } = require('bcrypt');
 const { sign } = require('jsonwebtoken');
 require('dotenv').config();
+const http = require('http');
+
 
 module.exports.createUser = async(req, res) => {
     var password = process.env.ADMINPASSWORD;
@@ -54,11 +56,12 @@ module.exports.login = async(req, res) => {
         // console.log(result)
         if (result) {
             const jsontoken = sign({ id: user.id }, process.env.SECRET_KEY, {
-                expiresIn: 3600
+                expiresIn: '1800s'
             });
-            res.setHeader("authentication", jsontoken);
-            res.redirect('/manager/notification');
+            // res.setHeader("authentication", jsontoken);
+            res.cookie('token', jsontoken, { maxAge: 1800000 });
 
+            res.redirect('/manager/notification');
 
         } else {
             res.render('auth/login', {
@@ -76,44 +79,7 @@ module.exports.login = async(req, res) => {
 
 }
 
-// login: (req, res) => {
-//     var email = req.body.email;
-
-//     getUserByEmail(email, (err, results) => {
-//         if (err) {
-//             console.log(err);
-//             return res.status(500).json({
-//                 ok: false,
-//                 data: results,
-//                 message: "Database connection error"
-//             });
-//         }
-//         if (!results) {
-//             return res.status(400).json({
-//                 ok: false,
-//                 data: results,
-//                 message: "Invalid email or password"
-//             });
-//         }
-
-//         const result = compareSync(req.body.password, results.password);
-
-//         if (result) {
-//             results.password = undefined;
-//             const jsontoken = sign({ result: results }, "3efdsdsdf@#$", {
-//                 expiresIn: "1h"
-//             });
-//             return res.status(200).json({
-//                 ok: true,
-//                 message: "Login success!",
-//                 token: jsontoken
-//             });
-//         } else {
-//             return res.json({
-//                 ok: false,
-//                 message: "Invalid email or password"
-//             })
-//         }
-
-//     });
-// }
+module.exports.logout = async(req, res) => {
+    res.clearCookie('token');
+    return res.redirect('/trang-chu');
+}

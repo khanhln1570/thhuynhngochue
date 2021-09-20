@@ -14,6 +14,7 @@ module.exports.index = async(req, res) => {
 }
 
 module.exports.getOne = async(req, res) => {
+    console.log(res.get('authentication'))
     var id = parseInt(req.params.id);
     const notis = await prisma.notification.findMany();
     const noti = await prisma.notification.findUnique({

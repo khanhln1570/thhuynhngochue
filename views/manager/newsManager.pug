@@ -2,14 +2,14 @@ extends ../layouts/mngcommon
 block content 
   section.padding.white.center-align
     .container
-      h2.text-uppercase.font-dearJoe(style="text-align: center;") THÔNG BÁO
+      h2.text-uppercase.font-dearJoe(style="text-align: center;") SỰ KIỆN
       form.container-form
         .table-responsive
           .table-wrapper
             .table-title
               .row
                 .col-md-4
-                  h2 Quản lý thông báo
+                  h2 Quản lý Sự kiện
                 .col-md-4
                   .search-box
                     i.fa.fa-search
@@ -26,7 +26,7 @@ block content
                 tr
                   th
                     span.custom-checkbox
-                      input#selectAll(type='checkbox', data-id=notis)
+                      input#selectAll(type='checkbox', data-id=newss)
                       label(for='selectAll')
                   th ID
                   th Tiêu đề
@@ -34,24 +34,24 @@ block content
                   th Ngày tạo
                   th Thao tác
               tbody
-                each noti in notis
+                each news in newss
                   tr
                     td
                       span.custom-checkbox
-                        input(type='checkbox', name='options[]', value=noti.notiId, id='checkbox'+noti.notiId,, data-id=noti)
-                        label(for='checkbox'+noti.notiId)
-                    td=noti.notiId
-                    td=noti.title
+                        input(type='checkbox', name='options[]', value=news.newsId, id='checkbox'+news.newsId,, data-id=news)
+                        label(for='checkbox'+news.newsId)
+                    td=news.newsId
+                    td=news.title
                     td
-                      pre.pre-content#content-news=noti.content
-                    td=(noti.createDate.getDate()+"/"+(noti.createDate.getMonth()+1)+"/"+noti.createDate.getFullYear())
+                      pre.pre-content#content-news=news.content
+                    td=(news.createDate.getDate()+"/"+(news.createDate.getMonth()+1)+"/"+news.createDate.getFullYear())
                       
                     td
-                      a(href=`/thong-bao/${noti.notiId}` target='_blank')
+                      a(href=`/tintuc-sukien/${news.newsId}` target='_blank')
                         i.fa.fa-eye
-                      a.edit(href='#editItemModal', data-toggle='modal', data-id=noti)
+                      a.edit(href='#editItemModal', data-toggle='modal', data-id=news)
                         i.fa.fa-edit(data-toggle='tooltip', title='Edit')
-                      a.delete(href='#deleteItemModal', data-toggle='modal', data-id=noti)
+                      a.delete(href='#deleteItemModal', data-toggle='modal', data-id=news)
                         i.fa.fa-trash(data-toggle='tooltip', title='Delete')
                     
             .clearfix
@@ -70,7 +70,7 @@ block content
                       a.page-link(href='/') Đầu
                   else  
                     li.page-item
-                      a.page-link(href='/manager/notification') Đầu
+                      a.page-link(href='/manager/news') Đầu
 
                   // item
                   - var i = (Number(page) > 3 ? Number(page) - 2 : 1);
@@ -80,10 +80,10 @@ block content
                   - for (; i <= (Number(page) + 2) && i <= pages; i++)
                       if (i==page)
                         li.page-item.active
-                          a.page-link(href=`/manager/notification?page=${i}`)=i
+                          a.page-link(href=`/manager/news?page=${i}`)=i
                       else  
                         li.page-item
-                          a.page-link(href=`/manager/notification?page=${i}`)=i
+                          a.page-link(href=`/manager/news?page=${i}`)=i
                       if (i== Number(page) + 2 && i < pages)
                         li.page-item.disabled
                           a.page-link(href='#') ...
@@ -94,7 +94,7 @@ block content
                       a.page-link(href='#') Cuối
                   else  
                     li.page-item
-                      a.page-link(href=`/manager/notification?page=${pages}`) Cuối
+                      a.page-link(href=`/manager/news?page=${pages}`) Cuối
               
                
                 
@@ -102,9 +102,9 @@ block content
     #addItemModal.modal.fade
       .modal-dialog
         .modal-content
-          form#form-add(action="/manager/notification/create" method="POST" enctype="multipart/form-data")
+          form#form-add(action="/manager/news/create" method="POST" enctype="multipart/form-data")
             .modal-header
-              h4.modal-title Thêm thông báo
+              h4.modal-title Thêm bài đăng
               button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalAdd()") &times;
             .modal-body
               .form-group
@@ -118,7 +118,7 @@ block content
                 label Ảnh liên quan
                 #image-upload-form
                   input.form-control#image-upload(type='file' onchange="image_select()" name="ImageUpload[]",
-                   multiple="", accept="image/png, image/jpeg")
+                   multiple="", accept="image/png, image/jpeg, mp4")
                   //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
                   .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap
                  
@@ -130,9 +130,9 @@ block content
     #editItemModal.modal.fade
       .modal-dialog
         .modal-content
-          form(action="/manager/notification/edit" method="POST" enctype="multipart/form-data")
+          form(action="/manager/news/edit" method="POST" enctype="multipart/form-data")
             .modal-header
-              h4.modal-title Chỉnh sửa thông báo
+              h4.modal-title Chỉnh sửa bài đăng
               button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalEdit()") &times;
             .modal-body
               .form-group
@@ -157,9 +157,9 @@ block content
     #deleteItemModal.modal.fade
       .modal-dialog
         .modal-content
-          form.container-form-delete(action="/manager/notification/delete", method="POST")
+          form.container-form-delete(action="/manager/news/delete", method="POST")
             .modal-header
-              h4.modal-title Xóa thông báo
+              h4.modal-title Xóa bài đăng
               button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
             .modal-body
               p Bạn có chắc xóa bản ghi này?

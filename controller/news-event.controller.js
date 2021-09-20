@@ -21,7 +21,8 @@ module.exports.getOne = async(req, res) => {
     const news = await prisma.news_event.findUnique({
         where: { newsId: id },
         include: {
-            image: true
+            image: true,
+            video: true
         }
 
     });
@@ -38,6 +39,7 @@ module.exports.getOne = async(req, res) => {
             links.push(link)
         }
     });
+
 
     // console.log(links)
     if (!news) {

@@ -2,6 +2,7 @@ const express = require('express');
 // create express app
 const app = express();
 
+const cookieParser = require('cookie-parser')
 
 
 const cors = require('cors');
@@ -15,12 +16,11 @@ app.set('view engine', 'pug')
 app.set('views', './views')
     // config public
 app.use(express.static('public'));
-
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
-
+app.use(cookieParser())
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+const { checkToken } = require('./middleware/auth.middleware');
 
 app.use(function(err, req, res, next) {
     // error handling logic
@@ -69,11 +69,11 @@ app.use('/lien-he', contactRoutes)
 
 // auth routes
 const authRoutes = require('./routes/auth.routes')
-app.use('/login', authRoutes)
+app.use('/auth', authRoutes)
 
 // admin routes
 const adminRoutes = require('./routes/admin.routes')
-app.use('/manager', adminRoutes)
+app.use('/manager', checkToken, adminRoutes)
 
 
 // activity routes

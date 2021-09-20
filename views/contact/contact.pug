@@ -14,16 +14,18 @@ block content
           // MESSAGE
           .col-lg-7
             h2.contact-title.font-dearJoe.text-custom2 Gửi tin nhắn của bạn
-            form#contact-form(action='#', method='post')
+            if (status)
+              p(style="color: red;")=status
+            form#contact-form(action='/lien-he', method='POST')
               .row
                 .col-lg-6
-                  input(name='name', placeholder='Tên', type='text')
+                  input(name='name', placeholder='Tên', type='text' required)
                 .col-lg-6
                   input(name='email', placeholder='Email', type='email')
                 .col-lg-12
-                  textarea(name='message', cols='30', rows='10', placeholder='Nội dung')
+                  textarea(name='message', cols='30', rows='10', placeholder='Nội dung' required)
                   button.button-default(type='submit') Gửi
-                  p ( Tính năng đang phát triển )
+                  
           // MESSAGE
           // INFO
           .col-lg-5

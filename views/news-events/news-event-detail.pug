@@ -42,10 +42,14 @@ block content
               a.link-relate(href=`${lin}` target='_blank')=lin 
               br
               br
-            each pic in news.image
-              .blog-detail-pic.pb30
-                img(src=pic.link, alt='image')
-                
+            if (news.image)
+              each pic in news.image
+                .blog-detail-pic.pb30
+                  img(src=pic.link, alt='image')
+            if (news.video) 
+              each vi in news.video   
+                .embed-responsive.embed-responsive-16by9
+                  iframe(width='956', height='538', src=vi.link, title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
               // /blog-pic
            
           // /noti-detail-content

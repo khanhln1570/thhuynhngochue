@@ -40,7 +40,7 @@ head
   // modernizr jS
   script(src='/js/modernizr-2.8.3.min.js', type='text/javascript')
 // /.top Header
-div(oncontextmenu='return false;')
+div(oncontextmenu='return true;')
   
   // /.Main Header
   .educare-header-section
@@ -84,12 +84,13 @@ div(oncontextmenu='return false;')
                       a(href='/thong-bao') Thông báo
                       // /.submenu
                     li
-                      a(href='/tintuc-sukien') Tin tức - Sự kiện
+                      a(href='#') Tin tức - Sự kiện
                       ul.submenu
                         li
+                          a(href='/tintuc-sukien') Tin tức - Sự kiện
+                        li
                           a(href='/tintuc-sukien/su-kien/chao-don-nam-hoc') Sự kiện nổi bật
-                        //- li
-                        //-   a(href='#') Tin nhà trường
+                        
                         //- li
                         //-   a(href='#') Tin giáo dục
                        
@@ -145,12 +146,10 @@ div(oncontextmenu='return false;')
           a(href='/thong-bao') Thông báo
           // /.submenu
         li
-          a(href='/tintuc-sukien') Tin tức - Sự kiện
+          a(href='#') Tin tức - Sự kiện
           ul.submenu
-            //- li
-            //-   a(href='#') Tin nhà trường
-            //- li
-            //-   a(href='#') Tin giáo dục
+            li
+              a(href='/tintuc-sukien') Tin tức - Sự kiện
             li
               a(href='/tintuc-sukien/su-kien/chao-don-nam-hoc') Sự kiện nổi bật
           // /.submenu
@@ -273,87 +272,33 @@ div(oncontextmenu='return false;')
   // Modal
   // Modal
   #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-    .modal-dialog(role='document')
-      .modal-content
-        .modal-header
-          h2#myModalLabel.modal-title
-            |  
-            span.color_red Chúng tôi có thể giúp gì?
-          button.close(type='button', data-dismiss='modal', aria-label='Close')
-            span(aria-hidden='true') &times;
-        .modal-body
-          .short-msg-tab
-            // Nav tabs
-            ul.nav.nav-tabs(role='tablist')
-              li.active(role='presentation')
-                a(href='#home', aria-controls='home', role='tab', data-toggle='tab')
-                  i.fa.fa-pencil-square-o(aria-hidden='true')
-                  |  Góp ý
-              li(role='presentation')
-                a(href='#profile', aria-controls='profile', role='tab', data-toggle='tab')
-                  i.fa.fa-question-circle-o(aria-hidden='true')
-                  |  Thắc mắc
-              li(role='presentation')
-                a(href='#messages', aria-controls='messages', role='tab', data-toggle='tab')
-                  i.fa.fa-exclamation-triangle(aria-hidden='true')
-                  |  Vấn đề khác
-              li(role='presentation')
-                a(href='#settings', aria-controls='settings', role='tab', data-toggle='tab')
-                  i.fa.fa-comments-o(aria-hidden='true')
-                  |  Đánh giá
-            // Tab panes
-            .tab-content
-              #home.tab-pane.active(role='tabpanel')
-                .row
-                  form#contact-form.callus.padding-bottom
-                    .col-lg-12
-                      .single-query
-                        input#name.keyword-input(placeholder='Name', name='name', type='text')
-                    .col-lg-12
-                      .single-query
-                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                    .col-lg-12
-                      .single-query
-                        textarea#message(name='message', placeholder='Message')
-              #profile.tab-pane.fade(role='tabpanel')
-                .row
-                  form#contact-form.callus.padding-bottom
-                    .col-lg-12
-                      .single-query
-                        input#name.keyword-input(placeholder='Name', name='name', type='text')
-                    .col-lg-12
-                      .single-query
-                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                    .col-lg-12
-                      .single-query
-                        textarea#message(name='message', placeholder='Message')
-              #messages.tab-pane.fade(role='tabpanel')
-                .row
-                  form#contact-form.callus.padding-bottom
-                    .col-lg-12
-                      .single-query
-                        input#name.keyword-input(placeholder='Name', name='name', type='text')
-                    .col-lg-12
-                      .single-query
-                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                    .col-lg-12
-                      .single-query
-                        textarea#message(name='message', placeholder='Message')
-              #settings.tab-pane.fade(role='tabpanel')
-                .row
-                  form#contact-form.callus.padding-bottom
-                    .col-lg-12
-                      .single-query
-                        input#name.keyword-input(placeholder='Name', name='name', type='text')
-                    .col-lg-12
-                      .single-query
-                        input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                    .col-lg-12
-                      .single-query
-                        textarea#message(name='message', placeholder='Message')
-        .modal-footer
-          button.btn_fill(type='button', data-dismiss='modal') Hủy         
-          button.btn_fill(type='button') Gửi 
+    form(action='/lien-he', method='POST')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h2#myModalLabel.modal-title
+              |  
+              span.color_red Chúng tôi có thể giúp gì?
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+             .tab-content
+                #home.tab-pane.active(role='tabpanel')
+                  .row
+                    #contact-form.callus.padding-bottom
+                      .col-lg-12
+                        .single-query
+                          input#name.keyword-input(placeholder='Tên', name='name', type='text', required)
+                      .col-lg-12
+                        .single-query
+                          input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+                      .col-lg-12
+                        .single-query
+                          textarea#message(name='message', placeholder='Nội dung' required)
+                
+          .modal-footer
+            button.btn_fill(type='button', data-dismiss='modal') Hủy         
+            button.btn_fill(type='submit') Gửi 
   // #/Modal
   // jQuery first, then Popper.js, then Bootstrap JS
   script(src='/js/jquery-3.3.1.min.js', type='text/javascript')

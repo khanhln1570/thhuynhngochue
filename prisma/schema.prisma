@@ -44,6 +44,7 @@ model notification {
   createDate       DateTime          @default(now()) @db.Timestamp(6)
   updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
   image           image[]
+  video           video[]
 }
 
 model news_event {
@@ -54,7 +55,7 @@ model news_event {
   category         category         @default(COMMON)
   createDate       DateTime          @default(now()) @db.Timestamp(6)
   updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
-  
+  video           video[]
   image           image[]
 }
 
@@ -69,6 +70,27 @@ model image{
   typeImage       typeImage?        @default(ALBUM)
   notification    notification?     @relation(fields: [notificatioId], references: [notiId])
   news_event      news_event?       @relation(fields: [newId], references: [newsId])
+}
+
+model video{
+  id              Int               @id @default(autoincrement())
+  link            String?           @db.Text
+  notificatioId   Int?               @db.Int
+  newId           Int?               @db.Int
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  notification    notification?     @relation(fields: [notificatioId], references: [notiId])
+  news_event      news_event?       @relation(fields: [newId], references: [newsId])
+}
+
+model message {
+  id               Int               @id @default(autoincrement())
+  title            String             @db.VarChar(200)
+  content          String             @db.Text 
+  email            String?             @db.VarChar(200)
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  
 }
 
 enum typeImage {

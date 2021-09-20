@@ -49,7 +49,7 @@ head
           .flat-top.flat-language
             ul.unstyled
               li
-                a(href='#') Log out
+                a(href='/auth/logout') Log out
   // /.row
            
   header#header.header.header-main.educare-header
@@ -61,18 +61,17 @@ head
               nav#mainnav.mainnav
                 ul.menu
                   li
-                    a(href='about.html') Quản lý
+                    a(href='#') Quản lý
                     ul.submenu
                       li
                         a(href='/manager/notification') Thông báo
                       li
-                        a(href='#') Tin tức sự kiện
-                      li
-                        a(href='#') Bài viết
+                        a(href='/manager/news') Tin tức sự kiện
+                      
                     // /.submenu
                  
                   li
-                    a(href='#') Cập nhật thông tin
+                    a(href='#') Hoạt động
                   li
                     a(href='#') Phản hồi
                   li
@@ -87,18 +86,17 @@ head
   nav#educare-mobile-nav.mainnav(style='display: none;')
     ul.menu
       li
-        a(href='about.html') Quản lý
+        a(href='#') Quản lý
         ul.submenu
           li
             a(href='/manager/notification') Thông báo
           li
-            a(href='#') Tin tức sự kiện
-          li
-            a(href='#') Bài viết
+            a(href='/manager/news') Tin tức sự kiện
+          
         // /.submenu
       
       li
-        a(href='#') Cập nhật thông tin
+        a(href='#') Hoạt động
       li
         a(href='#') Phản hồi
       li
@@ -195,7 +193,12 @@ script.
     // delete icon
     deleteIcon.click(function(){
       var item = $(this).data('id');
-      itemIds.push(item.notiId)
+      if(item.notiId){
+        itemIds.push(item.notiId)
+      }
+      if(item.newsId){
+        itemIds.push(item.newsId)
+      }
       $("#deleteItemModal .modal-footer #idItemDelete").val(itemIds);
     });
     deleteSubmitModal.click(function(){

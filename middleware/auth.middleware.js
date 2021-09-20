@@ -1,27 +1,27 @@
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 const { verify } = require('jsonwebtoken');
 require('dotenv').config();
 
 module.exports.checkToken = async(req, res, next) => {
-    let token = req.get("authentication");
-    console.log(token)
-    console.log(req.headers['authentication']);
-    console.log(res.getHeader('authentication'));
-    if (token) {
-
-        verify(token, process.env.SECRET_KEY, (err, decoded) => {
-            if (err) {
-                res.json({
-                    ok: false,
-                    message: "Invalid token"
-                });
-            } else {
-                next();
-            }
-        })
-    } else {
-        res.status(404).json({
-            ok: false,
-            message: "Access denied!"
-        });
+    try {
+        let token = req.cookies.token;
+        if (!token) {
+            res.redirect('/auth/login');
+            return;
+        }
+        var tokenResult = verify(token, process.env.SECRET_KEY);
+        // console.log(tokenResult)
+        const user = await prisma.account.findUnique({ where: { id: tokenResult.id } });
+        if (!user) {
+            res.redirect('/auth/login');
+            return;
+        }
+        next()
+    } catch (error) {
+        console.log(error)
+        res.status(403).json({ error: "UnAuthorized" })
     }
+
+
 }
