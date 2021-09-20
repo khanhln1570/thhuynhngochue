@@ -6,6 +6,7 @@ module.exports.index = async(req, res) => {
     const notis = await prisma.notification.findMany({ take: 3, orderBy: { createDate: 'desc' } })
         // const newsList = await prisma.news_event.findMany({ take: 3, orderBy: { newsId: 'desc' } })
     const newsList = await prisma.news_event.findMany({
+        take: 3,
         where: {
             category: 'EVENT'
         },
