@@ -24,7 +24,10 @@ block content
           .col-sm-6.col-lg-4.items
             .info
               a(href=`/tintuc-sukien/${news.newsId}`)
-                img(alt='image', title='image', src=news.link)
+                if (news.link)
+                  img(src=news.link, alt='')
+                else  
+                  img(src='/images/event/event1.jpg', alt='')
               .date
                 p=news.createDate.getDate()
                 p

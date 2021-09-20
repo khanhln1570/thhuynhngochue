@@ -23,7 +23,10 @@ block content
             .col-md-4
               .event_box_section
                 figure
-                  img(src=noti.link, alt='')
+                  if (noti.link)
+                    img(src=noti.link, alt='')
+                  else  
+                    img(src='/images/event/event1', alt='')
                   .events_s-fig-capstion
                     a(href=`/thong-bao/${noti.notiId}`)=noti.title
                 .events_s-thumb-caption
