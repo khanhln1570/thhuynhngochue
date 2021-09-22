@@ -37,7 +37,7 @@ head
   // modernizr jS
   script(src='/js/modernizr-2.8.3.min.js', type='text/javascript')
 
-.top
+.top(oncontextmenu='return false;')
   .container
     .row
       .col-lg-6.col-sm-12.mobile-center
@@ -346,6 +346,21 @@ script.
     imagesEdit = dataJSON.image;
     document.getElementById('image-preview-wrap-update').innerHTML= image_show_update();
   }
+script.
+      document.onkeydown = function(e) {
+      if (event.keyCode === 123) {
+      return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+      return false
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+      return false
+      }
+      if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+      return false
+      }
+      }
   
  
 
