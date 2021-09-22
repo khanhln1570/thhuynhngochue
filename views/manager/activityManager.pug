@@ -1,0 +1,191 @@
+extends ../layouts/mngcommon
+block content 
+  section.padding.white.center-align
+    .container
+      h2.text-uppercase.font-dearJoe(style="text-align: center;") SỰ KIỆN
+      form.container-form
+        .table-responsive
+          .table-wrapper
+            .table-title
+              .row
+                .col-md-4
+                  h2 Quản lý Hoạt động
+                .col-md-4
+                  .search-box
+                    i.fa.fa-search
+                    input.form-control(type='text', placeholder='Tìm kiếm…')
+                .col-md-4
+                  a.btn.btn-success(href='#addItemModal', data-toggle='modal')
+                    i.fa.fa-plus-circle
+                    span Thêm
+                  a.btn.btn-danger.disabled.check-all-submit-btn(href='#deleteItemModal', data-toggle='modal')
+                    i.fa.fa-minus-circle
+                    span Xóa
+            table.table.table-striped.table-hover.table-bordered
+              thead
+                tr
+                  th
+                    span.custom-checkbox
+                      input#selectAll(type='checkbox', data-id=activity)
+                      label(for='selectAll')
+                  th ID
+                  th Tiêu đề
+                  th Hoạt động
+                  th Nội dung
+                  th Ngày tạo
+                  th Thao tác
+              tbody
+                each activity in activities
+                  tr
+                    td
+                      span.custom-checkbox
+                        input(type='checkbox', name='options[]', value=activity.newsId, id='checkbox'+activity.newsId,, data-id=activity)
+                        label(for='checkbox'+activity.newsId)
+                    td=activity.newsId
+                    td=activity.title
+                    if (activity.category==='CHUYENMON')
+                      td Chuyên môn
+                    if (activity.category==='VNTT')
+                      td Văn nghệ  - thể thao
+                    if (activity.category==='COMMON')
+                      td Đội
+                    if (activity.category==='DOANTHE')
+                      td Đoàn thể
+                    td
+                      pre.pre-content#content-news=activity.content
+                    td=(activity.createDate.getDate()+"/"+(activity.createDate.getMonth()+1)+"/"+activity.createDate.getFullYear())
+                      
+                    td
+                      a(href=`/tintuc-sukien/${activity.newsId}` target='_blank')
+                        i.fa.fa-eye
+                      a.edit(href='#editItemModal', data-toggle='modal', data-id=activity)
+                        i.fa.fa-edit(data-toggle='tooltip', title='Edit')
+                      a.delete(href='#deleteItemModal', data-toggle='modal', data-id=activity)
+                        i.fa.fa-trash(data-toggle='tooltip', title='Delete')
+                    
+            .clearfix
+              .hint-text
+                | Hiện &nbsp;
+                b=count 
+                |  trong số &nbsp;
+                b=countAll
+                |  bản ghi
+
+              if (pages>0)
+                ul.pagination
+                  // first item
+                  if (page==1)
+                    li.page-item.disabled
+                      a.page-link(href='/') Đầu
+                  else  
+                    li.page-item
+                      a.page-link(href='/manager/activity') Đầu
+
+                  // item
+                  - var i = (Number(page) > 3 ? Number(page) - 2 : 1);
+                  if (i !== 1)
+                    li.page-item.disabled
+                      a.page-link(href='#') ...
+                  - for (; i <= (Number(page) + 2) && i <= pages; i++)
+                      if (i==page)
+                        li.page-item.active
+                          a.page-link(href=`/manager/activity?page=${i}`)=i
+                      else  
+                        li.page-item
+                          a.page-link(href=`/manager/activity?page=${i}`)=i
+                      if (i== Number(page) + 2 && i < pages)
+                        li.page-item.disabled
+                          a.page-link(href='#') ...
+
+                  // last item
+                  if (page === pages)
+                    li.page-item.disabled
+                      a.page-link(href='#') Cuối
+                  else  
+                    li.page-item
+                      a.page-link(href=`/manager/activity?page=${pages}`) Cuối
+              
+               
+                
+    // Add Modal HTML
+    #addItemModal.modal.fade
+      .modal-dialog
+        .modal-content
+          form#form-add(action="/manager/activity/create" method="POST" enctype="multipart/form-data")
+            .modal-header
+              h4.modal-title Thêm bài đăng
+              button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalAdd()") &times;
+            .modal-body
+              .form-group
+                
+                <select id="category" name="category" required >
+                  <option value="">-- Chọn loại hoạt động --</option>
+                  <option  value="CHUYENMON">Chuyên môn</option>
+                  <option  value="VNTT">Văn nghệ - Thể thao</option>
+                  <option  value="DOANTHE">Đoàn thể</option>
+                  <option  value="COMMON">Đội</option>
+                </select>
+              .form-group
+                label Tiêu đề
+                input.form-control#titleItemAdd(type='text', required='', name='title')
+              .form-group
+                label Nội dung
+                textarea.form-control#contentItemAdd(required='', name="content")
+              
+              .form-group
+                label Ảnh liên quan
+                #image-upload-form
+                  input.form-control#image-upload(type='file' onchange="image_select()" name="ImageUpload[]",
+                   multiple="", accept="image/png, image/jpeg, mp4")
+                  //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
+                  .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap
+                 
+            .modal-footer
+              input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy', onclick="cancelModalAdd()")
+              input.btn.btn-success(type='submit', value='Thêm')
+
+    // Edit Modal HTML
+    #editItemModal.modal.fade
+      .modal-dialog
+        .modal-content
+          form(action="/manager/activity/edit" method="POST" enctype="multipart/form-data")
+            .modal-header
+              h4.modal-title Chỉnh sửa bài đăng
+              button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalEdit()") &times;
+            .modal-body
+              .form-group
+                label Tiêu đề
+                input.form-control#titleItem(type='text', required='', name='title')
+              .form-group
+                label Nội dung
+                textarea.form-control(id='contentItem' ,required='',  name="content")
+              
+              .form-group
+                label Ảnh liên quan
+                #image-upload-form
+                  input.form-control#image-upload-update(type='file' onchange="image_select_update()" name="ImageUpload_Update[]",
+                   multiple="",accept="image/png, image/jpeg")
+                  //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
+                  .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap-update
+            .modal-footer
+              input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy', onclick="cancelModalEdit()")
+              input.btn.btn-info(type='submit', value='Lưu')
+              
+    // Delete Modal HTML
+    #deleteItemModal.modal.fade
+      .modal-dialog
+        .modal-content
+          form.container-form-delete(action="/manager/activity/delete", method="POST")
+            .modal-header
+              h4.modal-title Xóa bài đăng
+              button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+            .modal-body
+              p Bạn có chắc xóa bản ghi này?
+              p.text-danger
+                small Thao tác này không thể hoàn tác
+            .modal-footer
+              input#idItemDelete(name="idItem[]",type="hidden")
+              input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy')
+              input#deleteSubmitModal.btn.btn-danger(type='submit', value='Xóa')
+
+  

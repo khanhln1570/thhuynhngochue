@@ -71,7 +71,7 @@ head
                     // /.submenu
                  
                   li
-                    a(href='#') Hoạt động
+                    a(href='/manager/activity') Hoạt động
                   li
                     a(href='#') Phản hồi
                   li
@@ -96,7 +96,7 @@ head
         // /.submenu
       
       li
-        a(href='#') Hoạt động
+        a(href='/manager/activity') Hoạt động
       li
         a(href='#') Phản hồi
       li
@@ -142,7 +142,13 @@ script.
     if (isCheckedAll){
       var data = $(this).data('id');
       data.forEach(element =>{
-        itemIds.push(element.notiId);
+        if (element.notiId){
+          itemIds.push(element.notiId);
+        }
+        if (element.newsId){
+          itemIds.push(element.newsId);
+        }
+        
       })
     }else{
       itemIds = [];
@@ -156,9 +162,21 @@ script.
       var isCheckedAll = checkbox.length === $('input[name="options[]"]:checked').length;
       checkAll.prop('checked',isCheckedAll);
       if ($(this).prop('checked')){
-       itemIds.push($(this).data('id').notiId)
+        if ($(this).data('id').notiId){
+          itemIds.push($(this).data('id').notiId)
+        }
+        if ($(this).data('id').newsId){
+          itemIds.push($(this).data('id').newsId)
+        }
       }else{
-        const index = itemIds.indexOf($(this).data('id').notiId);
+        var index;
+        if ($(this).data('id').notiId){
+          index = itemIds.indexOf($(this).data('id').notiId);
+        }
+        if ($(this).data('id').newsId){
+          index = itemIds.indexOf($(this).data('id').newsId);
+        }
+         
         if (index > -1) {
           itemIds.splice(index, 1);
         }

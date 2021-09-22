@@ -36,7 +36,7 @@ app.get('/page404', (req, res) => {
     })
 })
 app.get('/', (req, res) => {
-    res.render('welcome')
+    res.redirect('/trang-chu')
 })
 
 // const { createUser } = require('./controller/auth.controller')
