@@ -136,19 +136,25 @@ block content
               button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalEdit()") &times;
             .modal-body
               .form-group
+                
+                input.form-control#idItem( required='', name='id' type="hidden" )
+              .form-group
                 label Tiêu đề
                 input.form-control#titleItem(type='text', required='', name='title')
               .form-group
                 label Nội dung
                 textarea.form-control(id='contentItem' ,required='',  name="content")
-              
+                input.form-control#imagedList(type="hidden", name="imagedList" )
               .form-group
                 label Ảnh liên quan
                 #image-upload-form
+                  .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap-update
+                  br
+                  label Thêm ảnh
                   input.form-control#image-upload-update(type='file' onchange="image_select_update()" name="ImageUpload_Update[]",
                    multiple="",accept="image/png, image/jpeg")
                   //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
-                  .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap-update
+                  
             .modal-footer
               input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy', onclick="cancelModalEdit()")
               input.btn.btn-info(type='submit', value='Lưu')

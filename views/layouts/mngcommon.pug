@@ -161,6 +161,7 @@ script.
     checkbox.change(function(){      
       var isCheckedAll = checkbox.length === $('input[name="options[]"]:checked').length;
       checkAll.prop('checked',isCheckedAll);
+      // khi checkbox item dc checked
       if ($(this).prop('checked')){
         if ($(this).data('id').notiId){
           itemIds.push($(this).data('id').notiId)
@@ -168,7 +169,9 @@ script.
         if ($(this).data('id').newsId){
           itemIds.push($(this).data('id').newsId)
         }
-      }else{
+      }
+      // bỏ checked thì remove item khỏi itemIds
+      else{
         var index;
         if ($(this).data('id').notiId){
           index = itemIds.indexOf($(this).data('id').notiId);
@@ -273,6 +276,7 @@ script.
 
 
   // edit image
+  // ds anh da co trc do
   var imagesEdit=[];
   var dataId;
   var dataJSON;
@@ -281,13 +285,22 @@ script.
   //- console.log(elementEdit)
   for(var i = 0; i < elementEdit.length; i++){
     elementEdit[i].onclick = function(){
+    // get data in form
     dataId = this.getAttribute('data-id');
-    
+    // convert data id sang JSON
     dataJSON = JSON.parse(dataId)
-    imagesEdit = dataJSON.image;
-    
+    imagesEdit = dataJSON.image;   
+    // lấy các title, content, id vào input 
     document.getElementById("titleItem").value= dataJSON.title;
     document.getElementById("contentItem").value = dataJSON.content;
+    if (dataJSON.newsId){
+      document.getElementById("idItem").value = dataJSON.newsId;
+    }
+    if (dataJSON.notiId){
+      document.getElementById("idItem").value = dataJSON.notiId;
+    }
+    // lấy link những ảnh đã có vào input
+    document.getElementById("imagedList").value= JSON.stringify(dataJSON.image);
     document.getElementById('image-preview-wrap-update').innerHTML= image_show_update();
     }
   }

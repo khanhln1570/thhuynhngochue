@@ -26,27 +26,27 @@ module.exports.getOne = async(req, res) => {
         }
 
     });
-    var content = news.content.split(" ");
-    // console.log(content)
-    var links = [];
-    content.forEach(element => {
-        if (element.startsWith('http') || element.startsWith(' http') ||
-            element.startsWith('\nhttp') || element.startsWith('\rhttp') || element.startsWith('(http') ||
-            element.startsWith('[http') ||
-            element.startsWith('{http')) {
-            var link = element.replace(/[{()}\[\]]/g, '')
 
-            links.push(link)
-        }
-    });
-
-
-    // console.log(links)
     if (!news) {
-        res.redirect('/page404')
+        return res.redirect('/page404')
     } else {
+        var content = news.content.split(" ");
+        // console.log(content)
+        var links = [];
+        content.forEach(element => {
+            if (element.startsWith('http') || element.startsWith(' http') ||
+                element.startsWith('\nhttp') || element.startsWith('\rhttp') || element.startsWith('(http') ||
+                element.startsWith('[http') ||
+                element.startsWith('{http')) {
+                var link = element.replace(/[{()}\[\]]/g, '')
 
-        res.render('news-events/news-event-detail', {
+                links.push(link)
+            }
+        });
+
+
+        // console.log(links)
+        return res.render('news-events/news-event-detail', {
             title: 'Chi tiết Tin tức - Sự kiện',
             newss,
             news,

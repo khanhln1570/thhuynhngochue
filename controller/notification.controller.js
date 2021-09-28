@@ -20,29 +20,30 @@ module.exports.getOne = async(req, res) => {
     const noti = await prisma.notification.findUnique({
         where: { notiId: id },
         include: {
-            image: true
+            image: true,
+            video: true
         }
 
     });
-    var content = noti.content.split(" ");
-    // console.log(content)
-    var links = [];
-    content.forEach(element => {
-        if (element.startsWith('http') || element.startsWith(' http') ||
-            element.startsWith('\nhttp') || element.startsWith('\rhttp') || element.startsWith('(http') ||
-            element.startsWith('[http') ||
-            element.startsWith('{http')) {
-            var link = element.replace(/[{()}\[\]]/g, '')
 
-            links.push(link)
-        }
-    });
-    // console.log(links);
     if (!noti) {
-        res.redirect('/page404')
+        return res.redirect('/page404')
     } else {
+        var content = noti.content.split(" ");
+        // console.log(content)
+        var links = [];
+        content.forEach(element => {
+            if (element.startsWith('http') || element.startsWith(' http') ||
+                element.startsWith('\nhttp') || element.startsWith('\rhttp') || element.startsWith('(http') ||
+                element.startsWith('[http') ||
+                element.startsWith('{http')) {
+                var link = element.replace(/[{()}\[\]]/g, '')
 
-        res.render('notifications/notification-detail', {
+                links.push(link)
+            }
+        });
+        // console.log(links);
+        return res.render('notifications/notification-detail', {
             title: 'Chi tiết Thông Báo',
             noti,
             notis,

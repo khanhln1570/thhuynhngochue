@@ -180,7 +180,7 @@ block content
           .col-sm-1.col-lg-2
         .row.clearfix
           .col-md-12.col-sm-12
-            .team_carousel1.owl-carousel
+            .team_carousel4.owl-carousel
               // Staff Member
               each teacher in teachers 
                   .staff-member
@@ -210,36 +210,23 @@ block content
       .row
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
-          h2.text-uppercase.text-white.font-dearJoe Ho&#x323;c sinh cu&#x309;a chu&#x301;ng t&ocirc;i no&#x301;i gi&#x300;?
+          h2.text-uppercase.text-white.font-dearJoe Học sinh chúng tôi nói gì
           .line_1-1
           .line_2-2
           .line_3-3
-          p.heading_space.text-white Tr&#x1B0;&#x1A1;&#x300;ng ho&#x323;c th&acirc;n thi&ecirc;&#x323;n, ho&#x323;c sinh ti&#x301;ch c&#x1B0;&#x323;c
+          p.heading_space.text-white Trường học thân thiện, học sinh tích cực
         .col-sm-1.col-lg-2
       .row
         .col-sm-12
           .team_carousel1.owl-carousel
-            .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
-              .author_img
-                img.radius_100p(src='/images/testimonial_author3.jpg', alt='author')
-              p.author_comment Em y&ecirc;u tr&#x1B0;&#x1A1;&#x300;ng em, v&#x1A1;&#x301;i bao ba&#x323;n th&acirc;n...
-              h5.text-custom1.text-uppercase
-                | Ho&#x323;c sinh 
-                span.line
-            .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
-              .author_img
-                img.radius_100p(src='/images/testimonial_author3.jpg', alt='author')
-              p.author_comment Em y&ecirc;u tr&#x1B0;&#x1A1;&#x300;ng em, v&#x1A1;&#x301;i bao ba&#x323;n th&acirc;n...
-              h5.text-custom2.text-uppercase
-                | Ho&#x323;c sinh 
-                span.line
-            .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
-              .author_img
-                img.radius_100p(src='/images/testimonial_author3.jpg', alt='author')
-              p.author_comment Em y&ecirc;u tr&#x1B0;&#x1A1;&#x300;ng em, v&#x1A1;&#x301;i bao ba&#x323;n th&acirc;n...
-              h5.text-custom2.text-uppercase
-                | Ho&#x323;c sinh 
-                span.line
+            each st in [1,2,3]
+              .single_testimonial.text-center.wow.zoomIn(data-wow-duration='2s')
+                .author_img
+                  img.radius_100p(src='/images/portfolio/aomu.jpg', alt='author')
+                p.author_comment Em yêu trường em, với bao bạn thân...
+                h5.text-custom1.text-uppercase
+                  | Học sinh 
+                  span.line
 
 
 

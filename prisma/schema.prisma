@@ -58,7 +58,16 @@ model news_event {
   video           video[]
   image           image[]
 }
-
+model post {
+  id               Int               @id @default(autoincrement())
+  title             String             @db.VarChar(200)
+  content          String?             @db.Text 
+  link             String?              @db.Text
+  category         category         @default(COMMON)
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  image_post       image_post[]
+}
 
 model image{
   id              Int               @id @default(autoincrement())
@@ -68,10 +77,20 @@ model image{
   createDate       DateTime          @default(now()) @db.Timestamp(6)
   updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
   typeImage       typeImage?        @default(ALBUM)
+  public_id       String?           @db.Text
   notification    notification?     @relation(fields: [notificatioId], references: [notiId])
   news_event      news_event?       @relation(fields: [newId], references: [newsId])
 }
-
+model image_post{
+  id              Int               @id @default(autoincrement())
+  link            String?           @db.Text
+  postId          Int?               @db.Int
+  createDate       DateTime          @default(now()) @db.Timestamp(6)
+  updateDate       DateTime          @default(now()) @updatedAt @db.Timestamp(6)
+  typeImage       typeImage?        @default(POST)
+  public_id       String?           @db.Text
+  post      post?       @relation(fields: [postId], references: [id])
+}
 model video{
   id              Int               @id @default(autoincrement())
   link            String?           @db.Text

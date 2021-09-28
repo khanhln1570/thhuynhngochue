@@ -1,7 +1,7 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const { cloudinary } = require("../ultils/cloudinary");
-const upload = require('../ultils/multer');
+
 
 // list noti
 module.exports.notiMng = async(req, res) => {
@@ -45,6 +45,14 @@ module.exports.deleteNoti = async(req, res) => {
             deleteImageRelate = await prisma.image.findMany({ where: { notificatioId: parseInt(element) } });
             deleteVideoRelate = await prisma.video.findMany({ where: { notificatioId: parseInt(element) } });
             if (deleteImageRelate) {
+                for (let index = 0; index < deleteImageRelate.length; index++) {
+                    const element = deleteImageRelate[index];
+                    if (element.public_id) {
+                        cloudinary.uploader.destroy(element.public_id, async(err, result) => {
+                            if (err) throw err;
+                        })
+                    }
+                }
                 await prisma.image.deleteMany({ where: { notificatioId: parseInt(element) } });
             }
             if (deleteVideoRelate) {
@@ -69,67 +77,75 @@ module.exports.createNoti = async(req, res) => {
         const content = req.body.content;
         const images = req.files;
         // console.log(images.length);
-        var listImagesUpload = [];
-        let notiCreate;
-        for (let index = 0; index < images.length; index++) {
-            const element = images[index];
-            var uploadResponse = await cloudinary.uploader.upload(element.path, {
-                upload_preset: 'thhuynhngochue_preset'
-            });
-            if (!uploadResponse) {
-                return res.send(`<h1>Thêm ảnh thất bại!</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/>`)
-            } else {
-                listImagesUpload.push(uploadResponse);
+        if (images.length > 0) {
+            var listImagesUpload = [];
+            var notiCreate;
+            for (let index = 0; index < images.length; index++) {
+                const element = images[index];
+                var uploadResponse = await cloudinary.uploader.upload(element.path, {
+                    upload_preset: 'thhuynhngochue_thongbao'
+                });
+                if (!uploadResponse) {
+                    return res.send(`<h1>Thêm ảnh thất bại!</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/>`)
+                } else {
+                    listImagesUpload.push(uploadResponse);
+                }
             }
-        }
-        // thêm vào db
-        // console.log(listImagesUpload.length)
-        var i = 0;
-        let urlsPrisma = Array.from({ length: listImagesUpload.length }).map(() => ({
-            link: listImagesUpload[i++].url,
-            typeImage: 'NOTI'
-        }));
-        // console.log(urlsPrisma);
-        // get first image
-        const linkFirst = urlsPrisma[0].link;
-        if (listImagesUpload.length > 0) {
+            // thêm vào db
+            // console.log(uploadResponse)
+            var i = 0;
+            let urlsPrisma = Array.from({ length: listImagesUpload.length }).map(() => ({
+                link: listImagesUpload[i].url,
+                typeImage: 'NOTI',
+                public_id: listImagesUpload[i++].public_id
+            }));
+            // console.log(urlsPrisma);
+            // get first image
+            const linkFirst = urlsPrisma[0].link;
+            if (listImagesUpload.length > 0) {
 
+                notiCreate = await prisma.notification.create({
+                    data: {
+                        title: title,
+                        content: content,
+                        link: linkFirst,
+                        image: {
+                            create: urlsPrisma
+                        }
+                    }
+                })
+
+
+
+
+            } else {
+
+                return res.send(`<h1>Thêm ảnh thất bại</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3>`)
+
+            }
+        } else {
             notiCreate = await prisma.notification.create({
                 data: {
                     title: title,
                     content: content,
-                    link: linkFirst,
-                    image: {
-                        create: urlsPrisma
-                    }
                 }
             })
-
-
+        }
+        if (notiCreate) {
             return res.redirect('/manager/notification')
-
         } else {
-
-            return res.send(`<h1>Thêm ảnh thất bại</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3>`)
-
+            return res.send(`<h1>Thất bại</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3>`)
         }
 
+
+
+
     } catch (error) {
         console.log(error)
         return res.send(`<h1>SOMETHING WRONG</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/><p>${error}</p>`)
     }
 }
 
-// edit noti
-module.exports.editNoti = async(req, res) => {
-    try {
-        console.log(req.body);
-        console.log(req.files);
-    } catch (error) {
-        console.log(error)
-        return res.send(`<h1>SOMETHING WRONG</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/><p>${error}</p>`)
-    }
-}
 
 // news manager
 module.exports.newsMng = async(req, res) => {
@@ -179,7 +195,13 @@ module.exports.createNews = async(req, res) => {
         const images = req.files;
         var category = req.body.category;
         let notiCreate;
-        // console.log(images.length);
+        var upload_preset = "";
+        if (category) {
+            upload_preset = "thhuynhngochue_hoatdong";
+        } else {
+            upload_preset = "thhuynhngochue_tintuc-sukien";
+        }
+        // console.log(upload_preset);
 
         // Nếu bài viết có thêm ảnh
         if (images.length > 0) {
@@ -187,7 +209,7 @@ module.exports.createNews = async(req, res) => {
             for (let index = 0; index < images.length; index++) {
                 const element = images[index];
                 var uploadResponse = await cloudinary.uploader.upload(element.path, {
-                    upload_preset: 'thhuynhngochue_preset'
+                    upload_preset: upload_preset
                 });
                 if (!uploadResponse) {
                     return res.send(`<h1>Thêm ảnh thất bại!</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/>`)
@@ -199,8 +221,9 @@ module.exports.createNews = async(req, res) => {
             // console.log(listImagesUpload.length)
             var i = 0;
             let urlsPrisma = Array.from({ length: listImagesUpload.length }).map(() => ({
-                link: listImagesUpload[i++].url,
-                typeImage: 'EVENT'
+                link: listImagesUpload[i].url,
+                typeImage: 'EVENT',
+                public_id: listImagesUpload[i++].public_id
             }));
             // console.log(urlsPrisma);
             // get first image
@@ -219,9 +242,6 @@ module.exports.createNews = async(req, res) => {
                     }
                 });
 
-
-
-
             } else {
 
                 return res.send(`<h1>Thêm ảnh thất bại</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3>`)
@@ -239,9 +259,9 @@ module.exports.createNews = async(req, res) => {
             });
         }
 
-        if (notiCreate && category) {
+        if (notiCreate && notiCreate.category !== "EVENT") {
             return res.redirect('/manager/activity')
-        } else if (notiCreate && !category) {
+        } else if (notiCreate && notiCreate.category === "EVENT") {
             return res.redirect('/manager/news')
         } else {
             return res.send(`<h1>SOMETHING WRONG</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/>`)
@@ -268,6 +288,14 @@ module.exports.deleteNews = async(req, res) => {
             deleteVideoRelate = await prisma.video.findMany({ where: { newId: parseInt(element) } });
             // console.log(deleteImageRelate);
             if (deleteImageRelate) {
+                for (let index = 0; index < deleteImageRelate.length; index++) {
+                    const element = deleteImageRelate[index];
+                    if (element.public_id) {
+                        cloudinary.uploader.destroy(element.public_id, async(err, result) => {
+                            if (err) throw err;
+                        })
+                    }
+                }
                 await prisma.image.deleteMany({ where: { newId: parseInt(element) } });
             }
             if (deleteVideoRelate) {
@@ -363,4 +391,33 @@ module.exports.activityMng = async(req, res) => {
         page,
         pages: Math.ceil(countAll / limit) // đếm có bao nhiêu trang
     });
+}
+
+// edit noti
+module.exports.editNoti = async(req, res) => {
+    try {
+        const titleUpdate = req.body.title;
+        const contentUpdate = req.body.content;
+        const idItem = req.body.id;
+        console.log(req.body)
+        var imagedList = req.body.imagedList;
+        const images = req.files;
+        var notiUpdate = await prisma.notification.findUnique({ where: { notiId: parseInt(idItem) } });
+        if (!notiUpdate) {
+            return res.send(`<h1>Không tìm thấy!</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3>`)
+        }
+        await prisma.notification.update({
+            where: {
+                notiId: notiUpdate.notiId
+            },
+            data: {
+                title: titleUpdate,
+                content: contentUpdate
+            }
+        });
+        console.log(imagedList)
+    } catch (error) {
+        console.log(error)
+        return res.send(`<h1>SOMETHING WRONG</h1><br/><h3>Vui lòng thử lại hoặc liên hệ ADMIN</h3><br/><p>${error}</p>`)
+    }
 }

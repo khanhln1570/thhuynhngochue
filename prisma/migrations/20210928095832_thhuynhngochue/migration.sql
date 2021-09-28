@@ -53,6 +53,19 @@ CREATE TABLE `news_event` (
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
+CREATE TABLE `post` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(200) NOT NULL,
+    `content` TEXT,
+    `link` TEXT,
+    `category` ENUM('SCHOOL', 'EDUCATION', 'EVENT', 'COMMON', 'DOANTHE', 'VNTT', 'CHUYENMON') NOT NULL DEFAULT 'COMMON',
+    `createDate` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `updateDate` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
 CREATE TABLE `image` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `link` TEXT,
@@ -61,6 +74,20 @@ CREATE TABLE `image` (
     `createDate` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updateDate` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `typeImage` ENUM('NEWS', 'NOTI', 'EVENT', 'ALBUM', 'COMMON', 'DOANTHE', 'VNTT', 'CHUYENMON', 'POST') DEFAULT 'ALBUM',
+    `public_id` TEXT,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `image_post` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `link` TEXT,
+    `postId` INTEGER,
+    `createDate` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `updateDate` TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `typeImage` ENUM('NEWS', 'NOTI', 'EVENT', 'ALBUM', 'COMMON', 'DOANTHE', 'VNTT', 'CHUYENMON', 'POST') DEFAULT 'POST',
+    `public_id` TEXT,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -94,6 +121,9 @@ ALTER TABLE `image` ADD FOREIGN KEY (`notificatioId`) REFERENCES `notification`(
 
 -- AddForeignKey
 ALTER TABLE `image` ADD FOREIGN KEY (`newId`) REFERENCES `news_event`(`newsId`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `image_post` ADD FOREIGN KEY (`postId`) REFERENCES `post`(`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `video` ADD FOREIGN KEY (`notificatioId`) REFERENCES `notification`(`notiId`) ON DELETE SET NULL ON UPDATE CASCADE;

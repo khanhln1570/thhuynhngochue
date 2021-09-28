@@ -56,10 +56,10 @@ module.exports.login = async(req, res) => {
         // console.log(result)
         if (result) {
             const jsontoken = sign({ id: user.id }, process.env.SECRET_KEY, {
-                expiresIn: '1800s'
+                expiresIn: '3600s'
             });
             // res.setHeader("authentication", jsontoken);
-            res.cookie('token', jsontoken, { maxAge: 1800000 });
+            res.cookie('token', jsontoken, { maxAge: 3600000 });
 
             res.redirect('/manager/notification');
 

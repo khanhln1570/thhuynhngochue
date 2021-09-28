@@ -11,21 +11,30 @@ block content
     Start of noti-details
     =============================================
   section#blog-detail.blog-detail-section.padding
-    .container-fluid
+    .container
       .row 
         .col-sm-1.col-lg-2
         .col-xs-12.col-sm-10.col-lg-8.text-center
-          h2.text-uppercase.font-dearJoe.text-custom1=news.category 
-            
+          if (news.category==='CHUYENMON')
+            h2.text-uppercase.font-dearJoe.text-custom1 CHUYÊN MÔN
+          if (news.category==='DOANTHE')
+            h2.text-uppercase.font-dearJoe.text-custom1 ĐOÀN THỂ
+          if (news.category==='COMMON')
+            h2.text-uppercase.font-dearJoe.text-custom1 HOẠT ĐỘNG ĐỘI
+          if (news.category==='VNTT')
+            h2.text-uppercase.font-dearJoe.text-custom1 VĂN NGHỆ - THỂ THAO
+          if (news.category==='EVENT')
+            h2.text-uppercase.font-dearJoe.text-custom1 SỰ KIỆN
+          
           .line_1-1
           .line_2-2
           .line_3-3
         .col-sm-1.col-lg-2
         
       .row.section-content
-        .col-sm-3
+        
            
-        .col-sm-7
+        .col-sm-9
           .noti-detail-content.pb20
             h1=news.title
             .blog-detail-meta.pb20
@@ -49,12 +58,22 @@ block content
             if (news.video) 
               each vi in news.video   
                 .embed-responsive.embed-responsive-16by9
-                  iframe(width='956', height='538', src=vi.link, title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
-              // /blog-pic
+                  iframe.pb30(width='956', height='538', src=vi.link, title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
+                  
            
           // /noti-detail-content
-        .col-sm-2
-         
+        .col-sm-3
+          .blog-sidebar.ml25
+            .side-bar-content
+              .about-me.pb30
+                .about-pic.pb25
+                  img(src='/images/portfolio/aomu.jpg', alt='image')
+                .about-text
+                  h4
+                    a.font-dearJoe(href='#') Học sinh của chúng tôi nói gì?
+                    
+                  p
+                    | Mỗi học sinh đều là những nhân tố đặc biệt với từng nhu cầu khác nhau ở mỗi giai đoạn phát triển.
   //
     End of blog-details
     =============================================

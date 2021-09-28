@@ -29,11 +29,15 @@ block content
             each lin in links 
               a.link-relate(href=`${lin}` target='_blank')=lin 
             // /blog-text
-            each pic in noti.image
-              .blog-detail-pic.pb30
-                img(src=pic.link, alt='image')
+            if (noti.image)
+              each pic in noti.image
+                .blog-detail-pic.pb30
+                  img(src=pic.link, alt='image')
               // /blog-pic
-            
+            if (noti.video) 
+              each vi in noti.video   
+                .embed-responsive.embed-responsive-16by9
+                  iframe.pb30(width='956', height='538', src=vi.link, title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
 
           // /noti-detail-content
         .col-sm-2

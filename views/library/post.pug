@@ -1,0 +1,71 @@
+extends ../layouts/common
+block content 
+  section.breadcrumbs_common.bg_img.pos_relative
+    .overlay-innerpage
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content.align_row_spacebetween
+            h2.color_ff Bài đăng thư viện xanh
+  //
+    Start of noti-details
+    =============================================
+  section#blog-detail.blog-detail-section.padding
+    .container
+      .row 
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          if (post.category==='EDUCATION')
+            h2.text-uppercase.font-dearJoe.text-custom1 BÀI ĐĂNG
+          
+          
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+        
+      .row.section-content
+        
+           
+        .col-sm-9
+          .noti-detail-content.pb20
+            h1=post.title
+            .blog-detail-meta.pb20
+              ul.meta
+                li
+                  i.fa.fa-calendar
+                  span.ml10=(post.createDate.getDate()+"/"+(post.createDate.getMonth()+1)+"/"+post.createDate.getFullYear())
+            // / blog-detail-meta
+            .noti-detail-text
+              pre.pre-content=post.content
+            // /blog-text
+            
+            
+            if (post.image_post)
+              each pic in post.image_post
+                .blog-detail-pic.pb30
+                  img(src=pic.link, alt='image')
+            //- if (post.video) 
+            //-   each vi in post.video   
+            //-     .embed-responsive.embed-responsive-16by9
+            //-       iframe.pb30(width='956', height='538', src=vi.link, title='YouTube video player', frameborder='0', allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='true')
+                  
+           
+          // /noti-detail-content
+        .col-sm-3
+          .blog-sidebar.ml25
+            .side-bar-content
+              .about-me.pb30
+                .about-pic.pb25
+                  img(src='/images/thuvien/thuvien3.jpg', alt='image')
+                .about-text
+                  h4
+                    a.font-dearJoe(href='/thu-vien-xanh/bai-dang/1') Chúng ta nên học gì từ những thói quen của nhà văn nổi tiếng?
+                    
+                  
+  //
+    End of blog-details
+    =============================================
+  // RECENT PROPERTY
+
+    
