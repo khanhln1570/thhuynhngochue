@@ -2703,18 +2703,37 @@ button {
 }
 
 .short-msg a.short-topup {
-    border-radius: 5px;
-    bottom: 15px;
+    border-radius: 20px 0px 0px 5px;
+    bottom: 0px;
     color: #fff;
-    font-size: 22px;
-    height: 40px;
-    line-height: 36px;
+    font-size: 15px;
+    height: 30px;
+    line-height: 32px;
     position: fixed;
-    right: 20px;
+    right: 0px;
     text-align: center;
-    width: 40px;
+    width: auto;
     z-index: 999;
     background: #e0004d;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.short-msg a.short-topup-news {
+    border-radius: 20px 0px 0px 5px;
+    bottom: 33px;
+    color: #fff;
+    font-size: 15px;
+    height: 30px;
+    line-height: 32px;
+    position: fixed;
+    right: 0px;
+    text-align: center;
+    width: auto;
+    z-index: 999;
+    background: #e0004d;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .nav-tabs>li>a>.fa {

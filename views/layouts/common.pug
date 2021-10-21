@@ -266,40 +266,45 @@ div(oncontextmenu='return true;')
           .hyper-right(style='text-align: center;font-style: italic;') Copy Right &copy;2021 Product of Vintech Service &amp; Solution Co., Ltd
 
   // Modal
-  .short-msg
-    a.short-topup(href='#.', data-toggle='modal', data-target='#myModal')
-      i.fa.fa-envelope-o(aria-hidden='true')
+  //- .short-msg
+  //-   a.short-topup#noti-id(href='#agent-p-2' onclick="clickNotiId();")
+  //-     i.fa.fa-comment  Thông báo mới
+  //-   a.short-topup-news#news-id(href='#blog' onclick="clickNewsId();")
+  //-     i.fa.fa-newspaper-o  Sự kiện mới
+ 
+   
+  
   // Modal
-  // Modal
-  #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-    form(action='/lien-he', method='POST')
-      .modal-dialog(role='document')
-        .modal-content
-          .modal-header
-            h2#myModalLabel.modal-title
-              |  
-              span.color_red Chúng tôi có thể giúp gì?
-            button.close(type='button', data-dismiss='modal', aria-label='Close')
-              span(aria-hidden='true') &times;
-          .modal-body
-             .tab-content
-                #home.tab-pane.active(role='tabpanel')
-                  .row
-                    #contact-form.callus.padding-bottom
-                      .col-lg-12
-                        .single-query
-                          input#name.keyword-input(placeholder='Tên', name='name', type='text', required)
-                      .col-lg-12
-                        .single-query
-                          input#email.keyword-input(placeholder='E - mail', name='email', type='email')
-                      .col-lg-12
-                        .single-query
-                          textarea#message(name='message', placeholder='Nội dung' required)
+  //- #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+  //-   form(action='/lien-he', method='POST')
+  //-     .modal-dialog(role='document')
+  //-       .modal-content
+  //-         .modal-header
+  //-           h2#myModalLabel.modal-title
+  //-             |  
+  //-             span.color_red Chúng tôi có thể giúp gì?
+  //-           button.close(type='button', data-dismiss='modal', aria-label='Close')
+  //-             span(aria-hidden='true') &times;
+  //-         .modal-body
+  //-            .tab-content
+  //-               #home.tab-pane.active(role='tabpanel')
+  //-                 .row
+  //-                   #contact-form.callus.padding-bottom
+  //-                     .col-lg-12
+  //-                       .single-query
+  //-                         input#name.keyword-input(placeholder='Tên', name='name', type='text', required)
+  //-                     .col-lg-12
+  //-                       .single-query
+  //-                         input#email.keyword-input(placeholder='E - mail', name='email', type='email')
+  //-                     .col-lg-12
+  //-                       .single-query
+  //-                         textarea#message(name='message', placeholder='Nội dung' required)
                 
-          .modal-footer
-            button.btn_fill(type='button', data-dismiss='modal') Hủy         
-            button.btn_fill(type='submit') Gửi 
-  // #/Modal
+  //-         .modal-footer
+  //-           button.btn_fill(type='button', data-dismiss='modal') Hủy         
+  //-           button.btn_fill(type='submit') Gửi 
+  //- // #/Modal
+
   // jQuery first, then Popper.js, then Bootstrap JS
   script(src='/js/jquery-3.3.1.min.js', type='text/javascript')
   script(src='/js/popper.min.js', type='text/javascript')
@@ -331,5 +336,15 @@ div(oncontextmenu='return true;')
       if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
       return false
       }
+      }
+      function clickNotiId() {        
+        document.getElementById('noti-id').hidden=true;
+        if(document.getElementById('news-id')){
+          document.getElementById('news-id').style.bottom = '0px'
+        }        
+      }
+      function clickNewsId() {        
+        document.getElementById('news-id').hidden=true;
+             
       }
 
