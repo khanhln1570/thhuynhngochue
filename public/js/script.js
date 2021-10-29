@@ -2,6 +2,12 @@
 (function($) {
 
     'use strict'
+    //  Hide Loading Box (Preloader)
+    function handlePreloader() {
+        if ($('.preloader').length) {
+            $('.preloader').delay(700).fadeOut(700);
+        }
+    }
 
     var isMobile = {
         Android: function() {
@@ -127,7 +133,9 @@
         responsiveMenu();
         TopSearch();
     });
-
+    $(window).on('load', function() {
+        handlePreloader();
+    });
 
 
 
