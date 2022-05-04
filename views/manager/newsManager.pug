@@ -49,8 +49,8 @@ block content
                     td
                       a(href=`/tintuc-sukien/${news.newsId}` target='_blank')
                         i.fa.fa-eye
-                      a.edit(href='#editItemModal', data-toggle='modal', data-id=news)
-                        i.fa.fa-edit(data-toggle='tooltip', title='Edit')
+                      //- a.edit(href='#editItemModal', data-toggle='modal', data-id=news)
+                      //-   i.fa.fa-edit(data-toggle='tooltip', title='Edit')
                       a.delete(href='#deleteItemModal', data-toggle='modal', data-id=news)
                         i.fa.fa-trash(data-toggle='tooltip', title='Delete')
                     
@@ -121,7 +121,9 @@ block content
                    multiple="", accept="image/png, image/jpeg, mp4")
                   //- button.btn.btn-sm.btn-primary(type="button" onclick="document.getElementById('')")
                   .card-body.d-flex.flex-wrap.justify-content-start.form-control#image-preview-wrap
-                 
+              .form-group
+                label Link Youtube video
+                input.form-control(type="text" name='youtubeLink')
             .modal-footer
               input#cancel.btn.btn-default(type='button', data-dismiss='modal', value='Hủy', onclick="cancelModalAdd()")
               input.btn.btn-success(type='submit', value='Thêm')

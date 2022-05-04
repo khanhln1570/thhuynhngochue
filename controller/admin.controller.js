@@ -77,6 +77,10 @@ module.exports.createNoti = async(req, res) => {
         const content = req.body.content;
         const images = req.files;
         // console.log(images.length);
+        const videoLinkInput = req.body.youtubeLink;
+        // console.log(videoLinkInput)
+        var idVideo = videoLinkInput.split('watch?v=');
+        var videoLinkEmbed = "https://www.youtube.com/embed/" + idVideo[1];
         if (images.length > 0) {
             var listImagesUpload = [];
             var notiCreate;
@@ -194,6 +198,18 @@ module.exports.createNews = async(req, res) => {
         const content = req.body.content;
         const images = req.files;
         var category = req.body.category;
+        const videoLinkInput = req.body.youtubeLink;
+        // console.log(videoLinkInput)
+        var idVideo = [];
+        var videoLinkEmbed = null;
+        if (videoLinkInput) {
+            idVideo = videoLinkInput.split('watch?v=');
+            videoLinkEmbed = "https://www.youtube.com/embed/" + idVideo[1]; // ex: [ 'https://www.youtube.com/watch?', 'tVotPIa4E2g' ]
+        } else {
+            idVideo.length = 0
+        }
+        // console.log(idVideo)
+        // console.log(videoLinkEmbed)
         let notiCreate;
         var upload_preset = "";
         if (category) {
@@ -238,6 +254,11 @@ module.exports.createNews = async(req, res) => {
                         image: {
                             create: urlsPrisma
                         },
+                        video: {
+                            create: {
+                                link: idVideo.length != 0 ? videoLinkEmbed : undefined,
+                            }
+                        },
                         category: category = (category) ? category : 'EVENT'
                     }
                 });
@@ -254,6 +275,11 @@ module.exports.createNews = async(req, res) => {
                 data: {
                     title: title,
                     content: content,
+                    video: {
+                        create: {
+                            link: idVideo.length != 0 ? videoLinkEmbed : undefined,
+                        }
+                    },
                     category: category = (category) ? category : 'EVENT'
                 }
             });
@@ -399,7 +425,7 @@ module.exports.editNoti = async(req, res) => {
         const titleUpdate = req.body.title;
         const contentUpdate = req.body.content;
         const idItem = req.body.id;
-        console.log(req.body)
+        // console.log(req.body)
         var imagedList = req.body.imagedList;
         const images = req.files;
         var notiUpdate = await prisma.notification.findUnique({ where: { notiId: parseInt(idItem) } });
