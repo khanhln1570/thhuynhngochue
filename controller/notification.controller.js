@@ -53,3 +53,29 @@ module.exports.getOne = async(req, res) => {
     }
 
 }
+
+module.exports.indexPublic = async(req, res) => {
+    const notis = await prisma.notification.findMany({
+        orderBy: {
+            createDate: 'desc'
+        },
+        where:{
+            OR:[
+                {
+                    title:{
+                        startsWith: 'Công khai'
+                    }
+                },
+                {
+                    title:{
+                        startsWith: 'CÔNG KHAI'
+                    }
+                },
+            ]
+        }
+    });
+    res.render('notifications/notification-public', {
+        title: 'Công Khai',
+        notis
+    });
+}

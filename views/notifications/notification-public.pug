@@ -1,0 +1,45 @@
+extends ../layouts/common
+block content 
+  section.breadcrumbs_common.bg_img.pos_relative
+    .overlay-innerpage
+    .container
+      .row
+        .col-md-12
+          .breadcrumbs_content.align_row_spacebetween
+            h2.color_ff Công khai
+  section#agent-p-2.property-details.white.padding
+    .container
+      .row
+        .col-sm-1.col-lg-2
+        .col-xs-12.col-sm-10.col-lg-8.text-center
+          h2.text-uppercase.font-dearJoe Công khai
+          .line_1-1
+          .line_2-2
+          .line_3-3
+        .col-sm-1.col-lg-2
+      .col-lg-12
+        .row
+          each noti in notis
+            .col-md-4
+              .event_box_section
+                figure
+                  if (noti.link)
+                    img(src=noti.link, alt='')
+                  else  
+                    img(src='/images/event/event1', alt='')
+                  .events_s-fig-capstion
+                    a(href=`/thong-bao/${noti.notiId}`)=noti.title
+                .events_s-thumb-caption
+                  h4=noti.title
+                  ul
+                    li
+                      a(href=`/thong-bao/${noti.notiId}`)
+                        i.fa.fa-calendar
+                        | #{noti.createDate.getDate()}-#{(noti.createDate.getMonth()+1)}-#{noti.createDate.getFullYear()} 
+                    li
+                      a(href=`/thong-bao/${noti.notiId}`)
+                        i.fa.fa-location-arrow
+                        | TH Huỳnh Ngọc Huệ
+                  span
+                    a(href=`/thong-bao/${noti.notiId}`) Xem chi tiết
+          
