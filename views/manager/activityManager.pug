@@ -117,14 +117,12 @@ block content
               button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick="cancelModalAdd()") &times;
             .modal-body
               .form-group
-                
-                <select id="category" name="category" required >
-                  <option value="">-- Chọn loại hoạt động --</option>
-                  <option  value="CHUYENMON">Chuyên môn</option>
-                  <option  value="VNTT">Văn nghệ - Thể thao</option>
-                  <option  value="DOANTHE">Đoàn thể</option>
-                  <option  value="COMMON">Đội</option>
-                </select>
+                select(id="category" name="category" required)
+                  option(value="") -- Chọn loại hoạt động --
+                  option(value="CHUYENMON") Chuyên môn
+                  option(value="VNTT") Văn nghệ - Thể thao
+                  option(value="DOANTHE") Đoàn thể
+                  option(value="COMMON") Đội
               .form-group
                 label Tiêu đề
                 input.form-control#titleItemAdd(type='text', required='', name='title')

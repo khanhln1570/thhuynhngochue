@@ -79,8 +79,11 @@ module.exports.createNoti = async(req, res) => {
         // console.log(images.length);
         const videoLinkInput = req.body.youtubeLink;
         // console.log(videoLinkInput)
-        var idVideo = videoLinkInput.split('watch?v=');
-        var videoLinkEmbed = "https://www.youtube.com/embed/" + idVideo[1];
+        if (videoLinkInput) {
+            var idVideo = videoLinkInput.split('watch?v=');
+            var videoLinkEmbed = "https://www.youtube.com/embed/" + idVideo[1];
+        }
+        
         if (images.length > 0) {
             var listImagesUpload = [];
             var notiCreate;
