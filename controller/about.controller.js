@@ -18,11 +18,11 @@ module.exports.about_danhnhan = async(req, res) => {
 module.exports.about_cnv = async(req, res) => {
     const bgh = await prisma.member.findMany({ where: { position: { contains: 'trưởng' } } });
 
-    const gvcn1 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 1' } } });
-    const gvcn2 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 2' } } });
-    const gvcn3 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 3' } } });
-    const gvcn4 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 4' } } });
-    const gvcn5 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 5' } } });
+    const gvcn1 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 1/' } }, orderBy:{position: 'asc'} });
+    const gvcn2 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 2/' } }, orderBy:{position: 'asc'}});
+    const gvcn3 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 3/' } }, orderBy:{position: 'asc'} });
+    const gvcn4 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 4/' } }, orderBy:{position: 'asc'} });
+    const gvcn5 = await prisma.member.findMany({ where: { position: { contains: 'GVCN LỚP 5/' } }, orderBy:{position: 'asc'} });
 
     const gvVanhoa = await prisma.member.findMany({ where: { position: 'DẠY VĂN HÓA' } });
     const gvMithuat = await prisma.member.findMany({ where: { position: 'DẠY MĨ THUẬT' } });
