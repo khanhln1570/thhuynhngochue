@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 module.exports.index = async(req, res) => {
-    const teachers = await prisma.member.findMany();
+    const teachers = await prisma.member.findMany({orderBy:{position: 'asc'}});
     res.render('abouts/about', {
         title: 'Giới thiệu chung',
         teachers
